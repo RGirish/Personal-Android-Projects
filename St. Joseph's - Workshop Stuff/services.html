@@ -1,0 +1,97 @@
+<html>
+	<head>
+		<title>Droid Dev</title>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	</head>
+	<body>
+	<div class="reveal">
+		<div class="slides">
+
+				
+				
+				<section>
+				<h2>ANDROID DEVELOPMENT</h2>
+				<h3 class="fragment" style="color:#000000">Services</h3>
+				</section>
+
+				<section>
+				<h4>A service is a component of an app that runs in the background, doing some prolonged task, without iunteracting with the user. For example, the Music app plays the songs from an activity in the background.</h4>
+				<h4 class="fragment">A service can take 2 states: </h4>
+				<h4 class="fragment" style="color:#000000">1) Started - when an activity starts the service by calling startService()</h4>
+				<h4 class="fragment" style="color:#000000">2) Bound - when an activity binds the service to it by calling bindService(). This offers a client server system through which the activity and the service can communicate.</h4>
+				</section>
+
+				<section>
+				<h4>Remember, started and bound are not two different kinds of services. There is only one kind of service and a service can be started and then bound to an activity if needed.</h4>
+				</section>
+
+				<section>
+				<h4>Service Lifecycle</h4>
+				<img class="fragment" src="img/service.jpg"/>
+				</section>
+
+				<section>
+				<h4>Examples</h4>
+				<h4 class="fragment" style="color:#000000">Services not bound- Downloading a set of images from the Internet.</h4>
+				<h4 class="fragment" style="color:#000000">Services that are bound- Music player. Music will be played by the service. It will have to interact with the activity when the user presses pause or stop.</h4>
+				</section>
+
+				<section>
+				<h4>Command to start a service</h4>
+				<h4 class="fragment" style="color:#000000">Intent intent = new Intent(this, MyService.class);
+				<br>startService(intent);</h4>
+				</section>
+
+				<section>
+				<h4>Command to stop a service?</h4>
+				<h4 class="fragment" style="color:#000000">Intent intent = new Intent(this, MyService.class);
+				<br>stopService(intent);</h4>
+				</section>
+
+				<section>
+				<img src="img/service2.jpg">
+				</section>
+
+				<section>
+				<h4>Make sure you let the manifest know about the Service!</h4>
+				<img class="fragment" src="img/service3.jpg">
+				</section>
+
+
+
+
+
+
+
+		</div>
+		
+	</div>
+	
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'concave', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+
+	</body>
+	</html>

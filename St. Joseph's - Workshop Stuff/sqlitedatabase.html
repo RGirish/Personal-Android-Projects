@@ -1,0 +1,191 @@
+<html>
+	<head>
+		<title>Droid Dev</title>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	</head>
+	<body>
+	<div class="reveal">
+		<div class="slides">
+
+				
+				
+				<section>
+				<h2>ANDROID DEVELOPMENT</h2>
+				<h3 class="fragment" style="color:#000000">Data Persistance</h3>
+				</section>
+				
+				<section>
+				<h4>Can a simple variable store data forever?</h4>
+				<h4 class="fragment" style="color:#000000">Store an EditText's text in a variable once, and display the same as a Toast when the app is opened again.</h4>
+				<h4 class="fragment">Any ideas how?</h4>
+				</section>
+
+				<section>
+				<h4>Okay while we're thinking about that, let me ask this too-</h4>
+				<h4 class="fragment" style="color:#000000">I wanna display a Toast Message only once- when the app is opened for the first time in a device.</h4>
+				<h4 class="fragment">Any ideas how?</h4>
+				</section>
+
+				<section>
+				<h4>*ba dam tiss*</h4>
+				<h2 class="fragment" style="color:#000000">SQLite</h2>
+				<h4 class="fragment">That's how.</h4>
+				</section>
+
+				<section>
+				<h4>Implementing SQLite in an app is very simple. Unlike, for example, Java, you don't have to modify or setup JDBC/ODBC or anything. SQLite is straight forward and a walk on a cake.</h4>
+				<h4 class="fragment" style="color:#000000">SQLite is an Open Source database. SQLite supports standard relational database features like SQL syntax, transactions and prepared statements. The database requires limited memory at runtime (approx. 250 KByte) which makes it a good candidate from being embedded into other runtimes,<font class="fragment"> in our case, Android.</font></h4>
+				</section>
+
+				<section>
+				<h4>If your application creates a database, this database is by default saved in the directory<br>DATA/data/APP_NAME/databases/FILENAME</h4>
+				<h4 style="color:#000000" class="fragment">The Package to be imported:<br>android.database.sqlite</h4>
+				</section>
+
+				<section>
+				<h4>Steps in using SQLite:</h4>
+				<h4 style="color:#000000" class="fragment">1. Create Database</h4>
+				<h4 style="color:#000000"  class="fragment">2. Create Table</h4>
+				<h4 style="color:#000000" class="fragment">3. Insert Rows</h4>
+				<h4 style="color:#000000" class="fragment">4. Update/ Retrieve/ Delete Rows</h4>
+				<h4 style="color:#000000" class="fragment">5. Close database connection</h4>
+				</section>
+
+				<section>
+				<h4>1. Creating a Database</h4>
+				<h4 style="color:#000000" class="fragment">Create an object.<br>SQLiteDatabase db;</h4>
+				<h4 style="color:#000000" class="fragment">db=openDatabase(String path, SQLiteDatabase.CursorFactory factory, int flags, DatabaseErrorHandler errorHandler)</h4>
+				<h4 style="color:#000000"  class="fragment">db=openDatabase(String path, SQLiteDatabase.CursorFactory factory, int flags)</h4>
+				<h4 style="color:#000000" class="fragment">db=openOrCreateDatabase(String path, SQLiteDatabase.CursorFactory factory)</h4>
+				<h4 style="color:#000000" class="fragment">db=openOrCreateDatabase(File file, SQLiteDatabase.CursorFactory factory)</h4>
+				<h4 style="color:#000000" class="fragment">db=openOrCreateDatabase(Path, Flags, CursorFactory);</h4>
+				</section>
+
+				<section>
+				<h4>Some Flags used with db creation</h4>
+				<h4 style="color:#000000" class="fragment">OPEN_READWRITE</h4>
+				<h4 style="color:#000000" class="fragment">OPEN_READONLY</h4>
+				<h4 style="color:#000000" class="fragment">CREATE_IF_NECESSARY</h4>
+				</section>
+
+				<section>
+				<h4>2. Creating a Table</h4>
+				<h4 style="color:#000000" class="fragment">db.execSQL("CREATE TABLE STATEMENT");</h4>
+				<h4 class="fragment"><br>Data types supported by SQLite</h4>
+				<h4 style="color:#000000" class="fragment">TEXT</h4>
+				<h4 style="color:#000000" class="fragment">INTEGER</h4>
+				<h4 style="color:#000000" class="fragment">REAL</h4>
+				<h4 style="color:#000000" class="fragment">NUMBER</h4>
+				<h4 style="color:#000000" class="fragment">And of course, NULL</h4>
+				</section>
+
+				<section>
+				<h4>3. Inserting Rows</h4>
+				<h4 style="color:#000000" class="fragment">db.execSQL("INSERT INTO tableName VALUES(...);");</h4>
+				</section>
+
+				<section>
+				<h4>4. Updating Rows</h4>
+				<h4 style="color:#000000" class="fragment">db.execSQL("UPDATE tableName SET(...);");</h4>
+				</section>
+
+				<section>
+				<h4>5. Deleting Rows</h4>
+				<h4 style="color:#000000" class="fragment">db.execSQL("DELETE FROM tableName WHERE...;");</h4>
+				</section>
+
+				<section>
+				<h4>5. Retrieving Rows</h4>
+				<h4 class="fragment">...</h4>
+				<h4 style="color:#000000" class="fragment">db.execSQL("SELECT ... FROM tableName WHERE ... ORDER BY ... ;"); <font style="color:#000">??</font></h4>
+				<h4 class="fragment">NOPE. That's not right. For the SELECT command alone, we use a different function 'rawQuery(String statement,String[] selectionArgs)'</h4>
+				<h4 style="color:#000000" class="fragment">The result of this statement will be a couple of rows put together, which is a portion of the entire table.</h4>
+				<h4 class="fragment">Cursor c=db.rawQuery("SELECT statement");</h4>
+				</section>
+
+				<section>
+				<h4 style="color:#000000">Functions in class Cursor:</h4>
+				<h4 class="fragment">moveToFirst()</h4>
+				<h4 class="fragment">moveToLast()</h4>
+				<h4 class="fragment">moveToNext()</h4>
+				<h4 class="fragment">move(int pos)</h4>
+				<h4 class="fragment">isFirst()</h4>
+				<h4 class="fragment">isLast()</h4>
+				<h4 class="fragment">isAfterLast()</h4>
+				</section>
+
+				<section>
+				<h4 style="color:#000000">Another set of Functions in class Cursor:</h4>
+				<h4 class="fragment">getString(int)</h4>
+				<h4 class="fragment">getInt(int)</h4>
+				<h4 class="fragment">getFloat(int)</h4>
+				<h4 class="fragment">getDouble(int)</h4>
+				<h4 class="fragment">getLong(int)</h4>
+				<h4 class="fragment">getCount()</h4>
+				</section>
+
+				<section>
+				<h4 style="color:#000000">After you are done with retrieving your data from a Cursor instance, it is important to 'close' the cursor connection.</h4>
+				<h4 class="fragment">c.close();</h4>
+				</section>
+
+				<section>
+				<h4 style="color:#000000">6. Closing a db Connection</h4>
+				<h4 class="fragment">Once all the work with a databse is over, it is necessary to close the databse connection.</h4>
+				<h4 class="fragment">db.close();</h4>
+				</section>
+
+				<section>
+				<h4 style="color:#000000">Time to code a little</h4>
+				<h4 class="fragment">Iterate a cursor object.</h4>
+				</section>
+
+				<section>
+				<h4 style="color:#000000">One of the ways to do it:</h4>
+				<br><img src="img/cursoriterate.jpg">
+				</section>
+				
+				<section>
+				<h4>Now that you know SQLite, find out a way to display that one-time-toast-message I was talking about in the first slide!</h4>
+				</section>
+
+				<section>
+				<h3 style="color:#000000">THE END</h3>
+				</section>
+
+
+
+
+
+		</div>
+		
+	</div>
+	
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'concave', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+
+	</body>
+	</html>

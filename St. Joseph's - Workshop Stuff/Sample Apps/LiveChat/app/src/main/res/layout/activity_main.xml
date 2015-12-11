@@ -1,0 +1,43 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/theLinearLayout"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:hint="Type a Message"
+            android:layout_gravity="bottom"
+            android:id="@+id/theEditText"
+            android:layout_width="0dp"
+            android:layout_weight="1.8"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_weight="0.2"
+            android:layout_width="0dp"
+            android:onClick="send"
+            android:background="#a070"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</FrameLayout>

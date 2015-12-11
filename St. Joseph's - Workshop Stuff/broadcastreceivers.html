@@ -1,0 +1,144 @@
+<html>
+	<head>
+		<title>Droid Dev</title>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	</head>
+	<body>
+	<div class="reveal">
+		<div class="slides">
+
+				
+				
+				<section>
+				<h2>ANDROID DEVELOPMENT</h2>
+				<h3 class="fragment" style="color:#000000">Broadcast Receivers</h3>
+				</section>
+
+				<section>
+				<h3 style="color:#000000">Raise volume above safe level? Listening at high volume for long periods may damage your hearing.</h3>
+				<h4 class="fragment">Heard this somewhere?</h4>
+				</section>
+
+				<section>
+				<img src="img/volume.jpg">
+				</section>
+
+				<section>
+				<h4>What happens in an android device when the battery gets low, say below 15% ?</h4><br>
+				<img src="img/batterylow.jpg" class="fragment">
+				</section>
+
+				<section>
+				<h4>How do you think both these things work?</h4>
+				</section>
+
+				<section>
+				<h4 style="color:#000000">These, and a lot more in Android, work using what are known as Broadcast Receivers.</h4>
+				</section>
+
+				<section>
+				<h3 style="color:#000000">Unicast vs Multicast vs Broadcast</h3>
+				</section>
+
+				<section>
+				<h4>So, in a normal Android phone, there are a lot of Broadcast messages sent every now and then.</h4>
+				<h4 class="fragment">Let's assume you have to develop an app that continuously uses the Internet connection to download some data. Is it advisable to let the app run even after the batter gets below, say, 10% ?</h4>
+				<h3 class="fragment"><b>NO</b></h3>
+				</section>
+
+				<section>
+				<h4>So, in our app, we need to have something like this-</h4>
+				<img class="fragment" src="img/sample.jpg">
+				<h4 class="fragment">How do we do this? We know whenever battery gets low, a Broadcast message is sent throughout the system and all the apps can access this message. So, what we can do is, create a class in our app that 'receives this broadcast message' and then turns off the Internet usage.</h4>
+				</section>
+
+				<section>
+				<h3 style="color:#000000">The Formal Definition</h3>
+				<h4 class="fragment">
+				Broadcast Receivers simply respond to broadcast messages from other applications or from the system
+				itself. These messages are sometime called events or intents. For example, applications can also initiate
+				broadcasts to let other applications know that some data has been downloaded to the device and is available for
+				them to use, so this is broadcast receiver who will intercept this communication and will initiate appropriate action.
+				</h4>
+				</section>
+
+				<section>
+				<h3>There are 2 steps in making use of intent broadcasts. They are:</h3>
+				<h4 class="fragment" style="color:#000000">
+					<ol>
+						<li>Creating the Broadcast Receiver</li>
+						<li>Registering the Broadcast Receiver with the Android Manifest a.k.a The Dad.</li>
+					</ol>
+				</h4>
+				</section>
+
+				<section>
+				<h3>Step 1 - Creating the Receiver</h3>
+				<h4 class="fragment">A broadcast receiver is implemented as a subclass of BroadcastReceiver class and overriding the onReceive()
+				method where each message is received as a Intent object parameter.</h4>
+				<img src="img/br.jpg" class="fragment">
+				</section>
+
+				<section>
+				<h3>Step 2 - Registering the Receiver</h3>
+				<h4 class="fragment">To make our receiver class 'MyReceiver' receive only that particular broadcast that we want, we need to register the class with the Android Manifest by specifying the Broadcast Intent's name.</h4>
+				<img src="img/br2.jpg" class="fragment">
+				</section>
+
+				<section>
+				<h4>Similar to BOOT_COMPLETED, there are many other system events stored as static variables in the class Intent. Some of them are:</h4>
+				<h4 class="fragment" style="color:#000000">android.intent.action.BATTERY_CHANGED</h4>
+				<h4 class="fragment" style="color:#000000">android.intent.action.BATTERY_LOW</h4>
+				<h4 class="fragment" style="color:#000000">android.intent.action.BATTERY_OKAY</h4>
+				<h4 class="fragment" style="color:#000000">android.intent.action.BUG_REPORT</h4>
+				<h4 class="fragment" style="color:#000000">android.intent.action.CALL</h4>
+				<h4 class="fragment" style="color:#000000">android.intent.action.CALL_BUTTON</h4>
+				<h4 class="fragment" style="color:#000000">android.intent.action.DATE_CHANGED</h4>
+				<h4 class="fragment" style="color:#000000">android.intent.action.REBOOT</h4>
+				</section>
+
+				<section>
+				<h4 style="color:#000000">You can even send out your own broadcast messages. That is, you can send out 'Custom Broadcast' mesages from inside your app's activity, and the other apps can receiver your Intent with their Broadcast Receivers that are registered for your custom Intent.</h4>
+				<img src="img/br3.jpg" class="fragment"/>
+				</section>
+
+				<section>
+				<h4 style="color:#000000">A broadcast receiver class works even when your app is closed. It'll listen for the registered broadcast when even when in background. So be careful when you're using Broadcast Receivers!</h4>
+				</section>
+
+
+
+
+
+		</div>
+		
+	</div>
+	
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'concave', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+
+	</body>
+	</html>

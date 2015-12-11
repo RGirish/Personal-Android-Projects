@@ -1,0 +1,138 @@
+<html>
+	<head>
+		<title>Droid Dev</title>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	</head>
+	<body>
+	<div class="reveal">
+		<div class="slides">
+
+				
+				
+				<section>
+				<h2>ANDROID DEVELOPMENT</h2>
+				<h3 class="fragment" style="color:#000000">Fragments</h3>
+				</section>
+
+				<section>
+				<h3 style="color:#000000">What are fragments?</h3>
+				<h4 class="fragment">A Fragment represents a portion of user interface in an Activity. You can combine multiple fragments in a single activity to build a multi-pane UI and reuse a fragment in multiple activities. You can think of a fragment as a modular section of an activity, which has its own lifecycle and which you can add or remove while the activity is running (sort of like a "sub activity" that you can reuse in different activities).</h4>
+				</section>
+
+				<section>
+				<h3 style="color:#000000">An Example</h3>
+				<img src="img/fragments.png"/>
+				</section>
+
+				<section>
+				<h3 style="color:#000000">The Fragment Lifecycle</h3>
+				<h4 class="fragment">Like mentioned before, each fragment has its own lifecycle. It doesn't follow the onCreate()-to-onDestroy() lifecycle of its parent Activity.</h4>
+				</section>
+
+				<section>
+				<img src="img/fragment_lifecycle1.png"/>
+				<img class="fragment" src="img/fragment_lifecycle2.png"/>
+				<img class="fragment" src="img/fragment_lifecycle3.png"/>
+				</section>
+
+				<section>
+				<h3 style="color:#000000">Steps in creating and using fragments:</h3>
+				<h4 class="fragment">When we are NOT using fragments, there is a single activity- MainActivity.java + activity_main.xml. All we need to do is design this xml file and the setContentView(int) command inflates the xml layout onto the screen.</h4>
+				<h4 class="fragment">But, when we are using Fragments, there are a few more steps in this process.</h4>
+				</section>
+
+				<section>
+				<h4>First step is to create an Activity and its corresponding xml layout. (the usual stuff)</h4>
+				<h4 class="fragment">This xml layout needs to have what we call the 'fragment space'. This is the frame or space into which we will be inflating the fragment views. For example, a fragment space can be a FrameLayout.</h4>
+				<h4 class="fragment">Next, we need to create as many xml layouts as the number of different fragment views we need.</h4>
+				<h4 class="fragment">Next, we need to create as many Fragment Classes as the number of different fragment views we need.</h4>
+				<h4 class="fragment">This Fragment class + its xml layout is similar to MainActivity + activity_main</h4>
+				</section>
+
+				<section>
+				<h4 style="color:#000000">Fragment Classes</h4>
+				<h4 class="fragment">Like how MainActivity extends a class called 'Activity' or 'ActionBarActivity', we need to create classes that extend the class Fragment.</h4>
+				<h4 class="fragment">It is inside this class that the fragment lifecycle functions are defined.</h4>
+				<h4 class="fragment">A simple Fragment class implements just the onCreateView() function.</h4>
+				</section>
+
+				<section>
+				<img src="img/examplefragmentclass.jpg"/>
+				</section>
+
+				<section>
+				<h4 style="color:#000000">FragmentManager and FragmentTransaction</h4>
+				<h4 class="fragment">These are the two classes that are to be used whenever we want to inflate a particular Fragment Class in a fragment space.</h4>
+				<img src="img/fragmentmanager.jpg" class="fragment"/>
+				</section>
+
+				<section>
+				<h4 style="color:#000000">Put all this together and you'll create an app with fragments.</h4>
+				</section>
+
+				<section>
+				<h2 style="color:#000000">Using Custom Fonts</h2>
+				</section>
+
+				<section>
+				<h4>The default font for text in Android is 'Roboto'</h4>
+				<h4 class="fragment">It is possible to change the typeface for text in the layout xml file.</h4>
+				<h4 class="fragment">This is done through-<br><font style="color:#000000">android:typeface="..."</font></h4>
+				<h4 class="fragment">
+				The possible options are:
+				<br>normal
+				<br>sans
+				<br>serif
+				<br>monospace
+				</h4>
+				<img src="img/fonts.jpg" class="fragment"/>
+				</section>
+
+				<section>
+				<h4>To use a custom font, that is, to use a .ttf file that you have, we need to import that file into the <i style="color:#000000">assets</i> folder inside your project.</h4>
+				<h4 class="fragment">If this folder doesn't already exist, create it in the same directory as the res folder.</h4>
+				<h4 class="fragment">Now place your font files inside this folder.</h4>
+				<h4 class="fragment">Setting this font to a View has to be done in the java file.</h4>
+				</section>
+
+				<section>
+				<img src="img/setfont.jpg"/>
+				</section>
+
+
+
+
+
+
+		</div>
+		
+	</div>
+	
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'concave', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+
+	</body>
+	</html>

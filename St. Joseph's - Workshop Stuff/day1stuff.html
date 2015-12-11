@@ -1,0 +1,279 @@
+	<html>
+	<head>
+	<title>Androidify Me !</title>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	</head>
+	<body>
+	<div class="reveal">
+		<div class="slides">
+				<section>
+				<h2><em>Androidify ME</em></h2>
+				<h3> AN Android Development Training Series </h3>
+				</section>
+				<section id="fragments">
+						<h3>The Team</h3>
+
+						<p><span class ="fragment">Girish.R</span><br><span class="fragment">Mukesh.A</span> <br><span><h4  class="fragment"><em>iClub<br>Department of Computer Science and Engineering<br>MNM Jain Engineering College</em></h4></span></p>
+				</section>
+					
+				<section>
+				<h3>Ping us Anytime !</h3>
+				<h4><p><span class="fragment">R.Girish - +91-7299687990|facebook.com/Giribhai94</span><br><span class="fragment">Mukesh.A - +91-8939083638|facebook.com/TheDracula</span><br><span class="fragment">Mail us at wedodroidapps@gmail.com</span></p></h4>
+				</section>
+
+				<section>
+					<em><h4>What are we taking you through today ?</h4></em>
+					<ol class="fragment roll-in">
+					<li>Android : What is it ?</li>
+					<li>Why Android ?</li>
+					<li>Android : A Brief History</li>
+					<li>The Rise of Applications</li>
+					<li>The Architecture of Android</li>
+					<li>Suiting up for the job !</li>
+					<li>ABC's of an App</li>
+					<li>Lifecycle of an App</li>
+					<li>Structure of a Project</li>
+					<li>Views and Stuff</li>
+					<li>Playing around !</li></ol>
+					</ol>
+				</section>
+				<section>
+				<h4>What Is Android ? </h4><br>
+				Android is an open source and Linux-based Operating System for mobile devices such as smartphones and tablet computers. Android was developed by the Open Handset Alliance, led by Google, and other companies. 
+				Android offers a unified approach to application development for mobile devices which means developers need only develop for Android, and their applications should be able to run on different devices powered by Android. 
+				The first beta version of the Android Software Development Kit (SDK) was released by Google in 2007 where as the first commercial version, Android 1.0, was released in September 2008
+				</section>
+				<section>
+				<span style="font-size:35px">
+					Android is an operating system based upon the frequently patched and updated Linux kernel and favours a java compatible runtime in form of its Dalvik Virtual Machine. Android is a heavily customizable system and provides the user with most of the control in his/her experience with the device. Android though it started out as a simple OS,amidst the biggies of the time like iOS,Windows and who could forget Symbian,Today holds the major market share of the telephony area. Android is famous for quite a huge number of reasons that overcome every other OS in one way or the other. Android provides not only the users but also developers with alot of ease as the Runtime is capable of running alot of apps,and thus to develop there is not one but too many ways - Ruby on Rails,Java,HTML,C++ are a few of them.
+				</span></section>
+				<section>
+					Android was founded by Andy Rubin,Rich Miner,Nick Sears and Chris White. Google acquired it only in the late 2005.
+					Android was the first by-product of the Open Handset Alliance of all the biggies of the mobile telephony industry.
+					Android has brought technology literally to everyone. Android is powerful,not evil,very user-friendly,supports seamless integration with almost every API,multi-tasking and to sum it all up its freakin <br><center><em>AWESOME</em></center>
+				</section>
+				<section>
+				<h3>Why Android ??</h3>
+				<ul>
+					<li>Major Market-Share</li>
+					<li>Easiest Migration from any environment</li>
+					<li>Most Developer-Friendly</li>
+					<li>Android is OPEN SOURCE(Huge access benefits No Play store)</li>
+					<li>Huge and Awesome support base</li>
+					<li>And,Come on What possibly do Apple and Windows have to argue with all that ?</li>
+				</ul>
+				</section>				
+				<section>
+					<h3>Android : Back to the Future !</h3>
+					<section>
+						<img class="fragment grow" src="img/vers.jpg">
+					</section>
+					<section>
+						<img class="fragment grow" height="95%" width="90%" src="img/hist.jpg">
+					</section>
+					<section>
+						<img class="fragment grow" src="img/locks.jpg">
+					</section>
+					<section>
+						<img class="fragment grow" src="img/homes.jpg">
+					</section>
+				</section>
+				<section>
+					<h3>The APPocalypse</h3>
+					<img class="fragment grow" src="img/apps.png">
+				</section>
+				<section>
+					<h3>Architecture-O-Android</h3>
+					<section>
+					<img class="fragment grow" src="img/arch.png">
+					</section>
+					<section>
+					<h4>Linux kernel</h4>
+					At the bottom of the layers is Linux - Linux 2.6 with approximately 115 patches. This provides basic system functionality like process management, memory management, device management like camera, keypad, display etc. Also, the kernel handles all the things that Linux is really good at such as networking and a vast array of device drivers, which take the pain out of interfacing to peripheral hardware. 
+					</section>
+					<section>
+						<h4>Libraries</h4>
+					On top of Linux kernel there is a set of libraries including open-source Web browser engine WebKit, well known library libc, SQLite database which is a useful repository for storage and sharing of application data, libraries to play and record audio and video, SSL libraries responsible for Internet security etc.
+					</section>
+					<section>
+						<h4>Android Runtime</h4>
+						<p style="font-size:30px">This is the third section of the architecture and available on the second layer from the bottom. This section provides a key component called Dalvik Virtual Machine which is a kind of Java Virtual Machine specially designed and optimized for Android. 
+						The Dalvik VM makes use of Linux core features like memory management and multi-threading, which is intrinsic in the Java language. The Dalvik VM enables every Android application to run in its own process, with its own instance of the Dalvik virtual machine. 
+						The Android runtime also provides a set of core libraries which enable Android application developers to write Android applications using standard Java programming language.
+					</p></section>
+					<section><p  style="font-size:25px"><br><br>
+				ART (Android RunTime) is the next version of Dalvik. Dalvik is the runtime, bytecode, and VM used by the Android system for running Android applications.
+
+				ART has two main features compared to Dalvik:
+				Ahead-of-Time (AOT) compilation, which improves speed (particularly startup time) and reduces memory footprint (no JIT)
+				Improved Garbage Collection (GC)
+
+				AOT means your apps are compiled to native code once. What is stored on your phone and run is effectively native, not byte, code. This differs from the traditional VM model, which interprets bytecode. Interpreters are slow, so VM developers added a technology called Just-in-Time (JIT) compilation, which compiles (and hopefully optimizes) your code to native code on-the-fly. Dalvik is a JIT'ing VM. The downside to JIT is that the JIT compiler runs while you are using your app, adding latency and memory pressure. The upside is that the JIT compiler can look at how you are using your code to perform profile-directed optimizations.
+
+				AOT is like JIT, but it runs once—say, at app installation time. While it lacks the ability to perform profile-directed optimizations, it is possible to perform more extensive optimizations since the compilation is less time sensitive. AOT is useful on systems, such as mobile devices, where JIT adds an unacceptable latency or memory cost to running apps. I think AOT is the right step for Android and ART looks quite impressive.
+				</p></section>
+					<section>
+				<h4>Application Framework</h4> 
+				The Application Framework layer provides many higher-level services to applications in the form of Java classes. Application developers are allowed to make use of these services in their applications. 
+				<h4>Applications</h4>
+				You will find all the Android application at the top layer. You will write your application to be installed on this layer only. Examples of such applications are Contacts Books, Browser, Games etc.
+					</section>
+				</section>
+				<section>
+					<h3>Lets Suit Up !</h3>
+					<section>
+						What do we need ?
+						<ul>
+							<li>Java Development Kit</li>
+							<li>Android SDK</li>
+							<li>An IDE compatible with Android Dev-Tools - Eclipse or Android Studio</li>
+						</ul>
+					</section>
+					<section>
+					<h3>Installing Android SDK</h3>
+
+					In order to start developing for Android you need the Software Development Kit. You can download it for Windows, Linux or for Mac OS X.
+					Once downloaded you have to install it, on Windows just start the executable file.
+					</section>
+					<section>
+					<h3>Installing Java JDK and Eclipse</h3>
+
+					The Java Development Kit is needed to develop Android applications since Android is based on Java and XML. Writing Android code is being done using an editor, the best supported ,and in my opinion, the best one around is Eclipse. Eclipse is an opensource freeware editor that is capable of supporting a wide range of programming languages.
+					</section>
+					<section><br>
+					<h3>Installing the ADT Plugin</h3>
+					<p style="font-size:25px">
+					Once Eclipse is installed we need to connect the Android SDK with Eclipse, this is being done by the ADT Plugin. Installing this plugin is easily done using eclipse.<br>
+
+					Start Eclipse. Navigate in the menu to Help > Install new software..
+					Press "Add..",  in the new window that pops up you can fill in Name with an arbitrary name. A good suggestion could be-Android Plugin and in the location you have to paste :<br>
+
+					1.https://dl-ssl.google.com/android/eclipse/<br>
+					Click "Ok". Make sure the checkbox for Developer Tools is selected and click Next.
+					Click "Next'. Accept al the license agreements, click "Finish" and restart Eclipse.
+					To configure the plugin : choose Window - Preferences
+					Select "Android" on the left panel and browse for the Android SDK you downloaded in the first step. (On windows : C:\Program Files (x86)\Android\android-sdk)<br>
+					Click apply and you are ready and ok !
+					</p></section>
+					<section>
+						<h3>Adding platforms and components</h3>
+
+					On windows, start the SDKManager.exe . Located in C:\Program Files (x86)\Android\android-sdk and install all platforms and components.
+					</section>
+				</section>
+				<section>
+					<h3>The ABC's of App</h3>					
+				</section>
+				<section>
+					<section>
+					<img class="fragment grow" height="90%" src="img/andapps.png">
+					</section>
+					<section>
+					<img class="fragment grow" src="img/ui.jpg">	
+					</section>
+					<section>
+						<img class="fragment grow" src="img/db.jpg">
+					</section>
+					<section>
+						<img class="fragment grow" src="img/bhv.jpg">
+					</section>
+				</section>
+				<section>
+					<h3>The Secret Life of An App</h3>
+				</section>
+				<section>
+					<img class="fragment grow" height="102%" width="120%" src="img/life.png">		
+				</section>
+				<section>
+					<img class="fragment grow" height="102%" width="120%" src="img/life2.png">		
+				</section>
+				<section><h4>
+					onCreate()</h4> This is the first callback and called when the activity is first created. 
+<br><h4>onStart()</h4> This callback is called when the activity becomes visible to the user. 
+<br><h4>onResume()</h4> This is called when the user starts interacting with the application. 
+<br><h4>onPause()</h4> 
+The paused activity does not receive user input and cannot execute any code and called when the current activity is being paused and the previous activity is being resumed.
+				</section>
+
+				 <section>
+<br><h4>onStop()</h4> This callback is called when the activity is no longer visible. 
+<br><h4>onDestroy()</h4> This callback is called before the activity is destroyed by the system. 
+<br><h4>onRestart()</h4> This callback is called when the activity restarts after stopping it. 
+				</section>
+				<section>
+					<h3>The Geometry of a Project</h3>
+				</section>
+				<section>
+					<img class="fragment grow" height="95%" width="120%" src="img/struct.png">
+				</section>
+				<section>
+					<img class="fragment grow" height="95%" width="120%" src="img/struct.jpg">
+				</section>
+				<section>
+					<h4>src</h4> This contains the .java source files for your project. By default, it includes an MainActivity.javasource file having an activity class that runs when your app is launched using the app icon. <br>
+<h4>gen</h4> This contains the .R file, a compiler-generated file that references all the resources found in your project. You should not modify this file. 
+<br>
+<h4>bin</h4> This folder contains the Android package files .apk built by the ADT during the build process and everything 
+else needed to run an Android application.</section> <section>
+<br><h4> 
+res/drawable-hdpi </h4> This is a directory for drawable objects that are designed for high-density screens. 
+<br><h4>
+res/layout </h4> This is a directory for files that define your app's user interface. 
+<h4>
+res/values</h4> This is a directory for other various XML files that contain a collection of resources, such as strings and colors definitions. 
+<h5>
+AndroidManifest.xml</h5> This is the manifest file which describes the fundamental characteristics of the app and defines each of its components
+				</section>
+				<section>
+					<img height = "105%" width = "120%" src="img/man.png">
+				</section>
+				<section>
+					<h3>Views,Layouts,and Stuff</h3>
+				</section>
+				<section>
+					<section>
+						<img height ="95%" width = "120%" class="fragment grow" src="img/lay1.png">
+					</section>
+					<section>
+						<img height ="95%" width = "120%" class="fragment grow" src="img/lay2.png">
+					</section>
+					<section>
+						<img height ="95%" width = "120%" class="fragment grow" src="img/lay3.png">
+					</section>
+				</section>
+				<section>
+					<h3>Lets get Playing !!</h3>
+				</section>
+		</div>
+		
+	</div>
+	
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({ 
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+
+	</body>
+	</html>

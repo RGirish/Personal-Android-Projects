@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Spinner</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="Ninan">
+        <item>Leo</item>
+        <item>Bumbillbee</item>
+        <item>.obj</item>
+    </string-array>
+
+</resources>

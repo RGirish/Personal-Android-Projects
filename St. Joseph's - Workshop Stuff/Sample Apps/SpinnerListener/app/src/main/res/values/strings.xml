@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Spinner Listener</string>
+    <string-array name="india_states">
+        <item>Tamilnadu</item>
+        <item>Kerala</item>
+        <item>Andhra</item>
+        <item>Punjab</item>
+    </string-array>
+
+    <string-array name="us_states">
+        <item>New York</item>
+        <item>Massachusetts</item>
+        <item>Washington</item>
+        <item>Utah</item>
+    </string-array>
+
+    <string-array name="canada_states">
+        <item>Ontario</item>
+        <item>British Columbia</item>
+        <item>Nova Scotia</item>
+        <item>Alberta</item>
+    </string-array>
+
+    <string-array name="countries">
+        <item>INDIA</item>
+        <item>USA</item>
+        <item>CANADA</item>
+    </string-array>
+
+</resources>
