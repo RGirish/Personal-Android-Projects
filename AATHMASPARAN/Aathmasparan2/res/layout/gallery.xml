@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainlin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/box" >
+
+    <ScrollView
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Gallery"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#bb0000"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="
+        				You don&apos;t need six packs to be a real Hero..…  A Kind Heart and Healthy Body will do….
+        Your tears cannot save a life !! But, your blood can ! Donate Blood ! Save a Life !
+        Register as a Donor today and Give someone another chance at LIFE."
+                android:textColor="#0000bb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="Aathmasparan salutes all Donors for providing invaluable service to humanity"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ddd"
+                android:textStyle="italic" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

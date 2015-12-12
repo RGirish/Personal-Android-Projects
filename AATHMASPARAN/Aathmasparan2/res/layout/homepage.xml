@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainlin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/box" >
+
+    <ScrollView
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Welcome to be a Hero"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#bb0000"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="		You don&apos;t need six packs to be a real Hero.. A Kind Heart and Healthy Body will do... Your tears cannot save a life !! But, your blood can ! Donate Blood ! Save a Life ! Register as a Donor today and Give someone another chance at LIFE."
+                android:textColor="#0000bb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="Benefits of Donating Blood :"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#bb0000"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="		Blood donation prevents the accumulation of toxic quantities in blood. Donating blood may reduce the risk of heart disease for men. Research publications indicate that repeated blood donation is effective in reducing blood pressure blood glucose low-density lipoprotein/high-density lipoprotein ratio, and heart rate."
+                android:textColor="#0000bb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="About Us"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#bb0000"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="		Aathmasparan is a non-profit organization established in Chennai in the year 2012 to serve as a bridge between Patients and Blood Donors. Started with just 2 donors, it has now 90 volunteers in its fold, who are ever willing to provide blood to the needy. Between November 2012 and April 2013, it has arranged blood to 70 patients. On 5th March 2013, Aathmasparan commemorated its First Anniversary by distributing stationeries to 135 students of Government High School, Adyar."
+                android:textColor="#0000bb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginBottom="10dp"
+                android:text="Aathmasparan salutes all Donors for providing invaluable service to humanity"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ddd"
+                android:textStyle="italic" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
