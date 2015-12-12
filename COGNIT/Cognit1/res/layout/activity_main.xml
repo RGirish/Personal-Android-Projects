@@ -1,0 +1,120 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:id="@+id/layout"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:layout_height="fill_parent" >
+
+   <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:background="#ffffff"
+        android:layout_height="50dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"            
+            android:gravity="center"
+            android:background="#ffffff"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:background="#1ba1e2"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:onClick="onclickfunc"
+                android:text="Home" />
+
+            
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:background="#60a917"
+                android:onClick="onclickfunc"
+                android:text="Technical Events"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+            
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:onClick="onclickfunc"
+                android:background="#423dad"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:text="Non-Technical Events" />
+            
+            <Button
+                android:id="@+id/buttonOL"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="#647687"
+                android:onClick="onclickfunc"
+                android:text="Online Events"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+            
+            <Button
+                android:id="@+id/button4"
+                android:onClick="onclickfunc"
+                android:background="#a4c400"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Workshops" />
+
+
+            <Button
+                android:id="@+id/button5"
+                android:background="#00aba9"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:onClick="onclickfunc"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:text="Register" />
+            
+            <Button
+                android:id="@+id/button6"
+                android:background="#f0a30a"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:onClick="onclickfunc"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Contact us" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+    
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:id="@+id/fragment_container"
+        android:layout_height="wrap_content" >
+
+    </FrameLayout>
+    
+    
+
+    <Button
+        android:id="@+id/status_bar"
+        android:layout_width="match_parent"
+        android:layout_weight="0"
+        android:background="#1ba1e2"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:gravity="right|center_vertical"
+        android:layout_height="40dp"
+        android:text="Home   " />
+
+</LinearLayout>

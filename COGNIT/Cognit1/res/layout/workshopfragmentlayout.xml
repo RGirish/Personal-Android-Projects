@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+ 
+<LinearLayout
+    android:layout_width="fill_parent"   
+    android:layout_height="wrap_content"   
+    android:gravity="center_horizontal"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="280dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="120dp"
+        android:src="@drawable/evolution" />
+    
+    
+    
+    
+    <ImageView
+        android:id="@+id/imageView33"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginLeft="40dp"
+        android:src="@drawable/duration" />
+    
+    <ImageView
+        android:id="@+id/imageView30"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="40dp"
+        android:src="@drawable/laptops" />
+
+    
+    
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:src="@drawable/android2" />
+    
+    
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/softwares" />
+	
+	
+	<ImageView
+        android:id="@+id/imageView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/content" />
+	
+	
+	
+	<ImageView
+        android:id="@+id/imageView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/bestpart" />
+	
+	<ImageView
+	    android:id="@+id/imageView2"
+	    android:layout_width="wrap_content"
+	    android:layout_height="400dp"
+        android:layout_marginBottom="760dp"
+	    android:layout_marginRight="108dp"
+	    android:layout_marginTop="-1130dp"
+	    android:src="@drawable/androidifyme" />
+
+	<ImageView
+	    android:id="@+id/imageView25"
+	    android:layout_width="200dp"
+	    android:layout_marginTop="-25dp"
+	    android:layout_height="150dp"
+        android:src="@drawable/yo" />
+	
+	
+</LinearLayout>
+</ScrollView>

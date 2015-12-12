@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/technocracy" />
+    
+<TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="Paper Presentation"
+        android:typeface="monospace"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:text="
+Topics:\n\n
+1. Biometrics\n\n
+2. DNA computing\n\n
+3. Cyber Crime and Security\n\n
+4. Knowledge discovery and Data Mining\n\n
+5. Cloud Computing\n\n
+6. Cryptography\n\n
+7. Sunspot (Wireless Sensor Network)\n\n
+8. Cyborgs\n\n
+9. AI Applications and robotics\n\n
+10. Network security\n\n
+11. Image processing\n\n
+12. Wireless technology\n\n
+13. Nano technology\n\n
+14. Pervasive computing\n\n
+
+Papers on recent trends will also be accepted! \n\n
+
+Rules:\n\n
+•	Mail your papers to cognit13ppt@gmail.com\n\n
+•	Maximum of three authors per paper.\n\n
+•	Name, College name, e-mail ID and mobile numbers of the author(s) are to be mentioned in the mail.\n\n
+•	Paper must strictly be in IEEE format.\n\n
+•	Time limit for the presentation is 6-8 minutes accompanied by a 2 minute questions session.\n\n
+•	2 hard copies and Soft copies are required to be brought.\n"
+        android:typeface="serif"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+</LinearLayout>
+</ScrollView>
