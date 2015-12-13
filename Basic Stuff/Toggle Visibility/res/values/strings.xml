@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Toggle Visibility</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="Mytext">Hi there! How r u?! :)</string>
+    <string name="Button_name">Toggle Visibility</string>
+
+</resources>

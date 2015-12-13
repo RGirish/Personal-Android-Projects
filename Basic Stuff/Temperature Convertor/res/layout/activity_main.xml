@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mycolor"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="139dp"
+        android:onClick="onClickb"
+        android:text="@string/calc" />
+
+    <RadioButton
+        android:id="@+id/radioButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_centerVertical="true"
+        android:checked="false"
+        android:onClick="onClickrb1"
+        android:text="@string/celsius" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/radioButton1"
+        android:layout_alignLeft="@+id/radioButton1"
+        android:layout_marginBottom="20dp"
+        android:checked="false"
+        android:onClick="onClickrb2"
+        android:text="@string/fahrenheit" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/radioButton2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="58dp"
+        android:ems="10"
+        android:inputType="numberDecimal|numberSigned" >
+
+        <requestFocus />
+    </EditText>
+
+</RelativeLayout>
