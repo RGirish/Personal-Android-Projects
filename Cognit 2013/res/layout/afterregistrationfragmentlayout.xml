@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Database updated for:"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#666666"
+        android:textSize="19sp"
+        android:typeface="serif"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/MyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:textStyle="bold"
+        android:textColor="#60a917"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:typeface="serif"
+        android:layout_marginTop="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="from"
+        android:textStyle="bold"
+        android:textColor="#555555"
+        android:textSize="17sp"
+        android:typeface="serif"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    
+    <TextView
+        android:id="@+id/MyCollege"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#00aba9"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="19sp"
+        android:gravity="center"
+        android:typeface="serif"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="with contact details "
+        android:textStyle="bold"
+        android:textColor="#555555"
+        android:textSize="17sp"
+        android:typeface="serif"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/MyNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#76608a"
+        android:textSize="19sp"
+        android:typeface="serif"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="and"
+        android:textStyle="bold"
+        android:textColor="#555555"
+        android:textSize="17sp"
+        android:typeface="serif"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    
+    <TextView
+        android:id="@+id/MyId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#76608a"
+        android:textSize="19sp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:layout_marginRight="10dp"
+        android:typeface="serif"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to participate in events"
+        android:textStyle="bold"
+        android:textColor="#555555"
+        android:textSize="17sp"
+        android:typeface="serif"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/MyEvents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#825a2c"
+        android:textSize="19sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:typeface="serif"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <Button
+            android:id="@+id/buttonagain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:textColor="#555555"
+            android:background="#dddddd"
+            android:typeface="serif"
+            android:textStyle="bold|italic"
+            android:textSize="16sp"
+            android:onClick="onclickregisteragain"
+            android:text="Go back to Registration Page" />
+    
+    
+    
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"   
+    android:layout_height="wrap_content"   
+    android:background="#ffffff">
+    
+<LinearLayout 
+    android:layout_width="fill_parent"   
+    android:layout_height="wrap_content"   
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/paper"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:onClick="paper"
+            android:src="@drawable/paperpresentation" />
+        
+        <ImageView
+            android:id="@+id/quiz"
+            android:layout_width="150dp"
+            android:onClick="quiz"
+            android:layout_height="150dp"
+            android:src="@drawable/quiz" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/web"
+            android:onClick="web"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/web" />
+        
+        <ImageView
+            android:id="@+id/googler"
+            android:onClick="googler"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/googler" />
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/pcassembly"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:onClick="pcassembly"
+            android:src="@drawable/pcassembly" />
+        
+        <ImageView
+            android:id="@+id/linux"
+            android:layout_width="150dp"
+            android:onClick="linux"
+            android:layout_height="150dp"
+            android:src="@drawable/linux" />
+        
+    </LinearLayout>
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/debugging"
+            android:layout_width="150dp"
+            android:onClick="debugging"
+            android:layout_height="150dp"
+            android:src="@drawable/debugging" />
+        
+        <ImageView
+            android:id="@+id/imageediting"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:onClick="imageediting"
+            android:src="@drawable/imageediting" />
+        
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

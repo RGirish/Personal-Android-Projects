@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/buttonb1"
+        android:layout_width="200dp"
+        android:background="#33b5e5"
+        android:textColor="#222"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="s_cid"
+        android:text="Search by CID" />
+    
+    <Button
+        android:id="@+id/buttonb52d"
+        android:layout_width="200dp"
+        android:background="#33b5e5"
+        android:textColor="#222"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="s_phone"
+        android:text="Search by Phone" />
+    
+    <Button
+        android:id="@+id/buttonb2"
+        android:layout_width="200dp"
+        android:background="#33b5e5"
+        android:textColor="#222"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="s_email"
+        android:text="Search by Email Id" />
+    
+    </LinearLayout>
