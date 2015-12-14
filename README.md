@@ -8,15 +8,25 @@ Aathmasparan is a non-profit organization established in Chennai in the year 201
 
 ## Basic Stuff
 
-### Bingo
-The Bingo Game! This was one of the first apps that I developed. The usual bingo game. Nothing special about it, really. #FirstBase
+#### Calculator
+A simple calculator with the 4 basic operations + - * and /. 
+#FirstBase
 
-*Tech stuff: Java/XML for the app.*
+#### Temperature Convertor
+My First Android Application! Converts temperature from degC to degF and vice-versa.
+#FirstBase
 
-### iClub Gallery
+#### Toggle Visibility
+Makes a TextView visible and invisible alternatively on a button click.
+#FirstBase
+
+#### iClub Gallery
 A simple gallery of ImageViews with the photos of our team - the Innovation club. 
+#FirstBase
 
-*Tech stuff: Java/XML for the app.*
+#### Bingo
+The Bingo Game! This was one of the first apps that I developed. The usual bingo game. Nothing special about it, really. #FirstBase
+#FirstBase
 
 ##Cognit
 Cognit is an annual technical symposium of my college, MNM Jain Engineering College, Chennai, India. In a (successful) attempt to digitize all the activities in the symposium, I developed an application that allows the visitors to register for the 10s of events on the day of the symposium. This replaced the traditional way of my college's pen and papaer on-spot registration. For the 2013 edition of the symposium, I created a simple informational application. It was for the 2014 edition, that I created the online registration app.
