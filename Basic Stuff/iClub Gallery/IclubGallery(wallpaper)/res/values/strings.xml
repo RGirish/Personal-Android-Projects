@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Iclub Gallery</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="Girish">Girish</string>
+    <string name="Mukesh">Mukesh</string>
+    <string name="Komal">Komal</string>
+    <string name="Khushal">Khushal</string>
+    <string name="Deepak">Deepak</string>
+    <string name="Narang">Narang</string>
+    <string name="Abishek">Abishek</string>
+    <string name="imagedesc">Space For Image</string>
+
+</resources>
