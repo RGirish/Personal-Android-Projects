@@ -6,8 +6,15 @@ Aathmasparan is a non-profit organization established in Chennai in the year 201
 
 *Tech stuff: Java/XML for the app, PHP/MySQL for the backend.*
 
-## Bingo
+## Basic Stuff
+
+### Bingo
 The Bingo Game! This was one of the first apps that I developed. The usual bingo game. Nothing special about it, really. #FirstBase
+
+*Tech stuff: Java/XML for the app.*
+
+### iClub Gallery
+A simple gallery of ImageViews with the photos of our team - the Innovation club. 
 
 *Tech stuff: Java/XML for the app.*
 
@@ -16,12 +23,12 @@ Cognit is an annual technical symposium of my college, MNM Jain Engineering Coll
 
 *Tech stuff: Java/XML for the app, PHP/MySQL for the backend.*
 
+##International Birthday Reminder
+
+An Application for birthday reminders. Just with a little different touch! I find it hard to remember birthdays of the loved ones in a different Time Zone - to send my wishes at 00:00. This application (which is in progress) will let you set the timezone of your loved one, and it will remind you in your time to wish him/her at 00:00. 
+
 ##St. Joseph's - Workshop Stuff
 
 In February 2014, a friend and I conducted a week-long workshop on Android Developmemnt on behalf of [Stigmata Techno Solutions](http://www.stigmata.co.in) in St.Joseph's College of Engineering, Chennai, India. We covered the basics and some advanced topics, for a class of 30 junior undergraduate students. This repo has the contents of the study material that I created for this sake and a lot of sample applications that I created during the workshop to demonstrate the concepts. 
 
 *Tech stuff: Used [Reveal JS](http://lab.hakim.se/reveal-js/#/) - a HTML Presentation Framework - for the presentations. And of course, Java/XML for the apps.*
-
-##International Birthday Reminder
-
-An Application for birthday reminders. Just with a little different touch! I find it hard to remember birthdays of the loved ones in a different Time Zone - to send my wishes at 00:00. This application (which is in progress) will let you set the timezone of your loved one, and it will remind you in your time to wish him/her at 00:00. 
