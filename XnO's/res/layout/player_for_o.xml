@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:background="@color/white"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical" 
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="27sp"
+                android:text="Choose the player for 'O'"
+                android:background="@color/white"
+                android:textColor="@color/blue"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+            
+            <Button
+                android:background="@color/green"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="1dp"
+                />
+                
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:id="@+id/player_o_ll"
+                android:background="@color/white"
+				android:layout_marginTop="20dp"
+				android:layout_marginBottom="40dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+                
+            </LinearLayout>
+            
+        </LinearLayout>
+        
+    </ScrollView>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">XnO\'s</string>
+    <string name="menu_settings">Settings</string>
+    <string name="blank"></string>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <string name="x">X</string>
+    <string name="y">Y</string>
+    <color name="green">#049b00</color>
+    <string name="newgame">New Game</string>
+    <string name="options">Options</string>
+    <string name="player_profiles">Player Profiles</string>
+    <string name="exit">Exit</string>
+    <color name="skyblue">#ccffff</color>
+    <color name="grey">#333333</color>
+    <string name="restart">Restart</string>
+    <string name="stats">Stats</string>
+    <color name="blue">#000099</color>
+    <color name="red">#bb0000</color>
+    <color name="violet">#550088</color>
+    <string name="newplayer2">\nWelcome!\nSet up your\nprofile first!</string>
+    <string name="newplayer1">\nNew to XnO\'s ?</string>
+    <string name="clickme">Click Me</string>
+    <string name="othersclickme">View Profiles Of Current Players</string>
+    <string name="entername">Enter Your Good Name: </string>
+    <string name="enterusername">Give XnO\'s a Nickname to \ncall you as: </string>
+    <string name="submit">Submit</string>
+    <string name="gender">What are you?</string>
+    <string name="cleardata">Clear All Player Data</string>
+    <string name="colorschemes">Color Schemes</string>
+    <color name="b1">#004080</color>
+    <color name="b2">#880015</color>
+    <color name="b3">#146b2f</color>
+    <color name="b4">#c5101a</color>
+    <color name="b5">#aa00aa</color>
+    <color name="b6">#535353</color>
+    <color name="b7">#4f77ae</color>
+    <color name="b8">#000000</color>
+    
+	<color name="b9">#ffaec9</color>
+    <color name="b10">#d2a993</color>
+    <color name="b11">#ff8000</color>
+    <color name="b12">#fff200</color>
+    <color name="b13">#99d9ea</color>
+    <color name="b14">#c8bfe7</color>
+    <color name="b15">#b1b165</color>
+    <color name="b16">#d1d1d1</color>
+    <color name="brown">#784a32</color>
+    
+    
+</resources>

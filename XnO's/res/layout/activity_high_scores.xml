@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:background="@color/white"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+        android:background="@color/white"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/buttonhs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:textSize="30sp"
+                android:textColor="@color/b11"
+                android:layout_marginBottom="10dp"
+                android:text="High Scores!" />
+            
+            <Button
+                
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/black"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+        android:background="@color/white"
+                android:id="@+id/llone"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                android:background="@color/white"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@color/green"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/buttonone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:text=""
+                    android:textColor="@color/grey"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+        android:background="@color/white"
+                android:id="@+id/lltwo"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@color/green"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/buttontwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:text=""
+                    android:textColor="@color/grey"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/llthree"
+        android:background="@color/white"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@color/green"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/buttonthree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:text=""
+                    android:textColor="@color/grey"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <Button
+                
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/blue"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:text="How It Works:"/>
+            
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:layout_height="200dp"
+                android:text="For every game you win, you get 2 points, for every game you lose, you lose 2 points and for every drawn game both players get 1 point each! "
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+            
+        </LinearLayout>
+
+    </ScrollView>    
