@@ -1,0 +1,73 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:paddingTop="30dp"
+    android:paddingBottom="30dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:textColor="#c444"
+            android:textSize="32sp"
+            android:typeface="monospace"
+            android:textStyle="italic"
+            android:layout_margin="20dp"
+            android:text="About Us"
+            android:shadowColor="#c444"
+            android:shadowDy="2.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="The word Aathmasparan means ‘saving the person’ in the oldest language of India – Sanskrit. Aathmasparan is a non-profit organization established in Chennai in the year 2012 to serve as a bridge between Patients and Blood Donors. Started with just 2 donors, it has now expanded its service far and wide. Aathmasparan also aims to support education by giving career guidance, exam tips etc. to poor students."
+        android:textSize="18sp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Organized an inter – Orphanage cultural event ‘SRUJAN’ where kids from different homes participated and showed their talents. The event was done in such a way that tickets were sold and the amount collected is used to support kids suffering from cancer and thalassemia on April 20th 2014 at German hnm,.was inaugurated by Mrs. Kutty Padmini, Actress, Director, Producer and Mr. K.Abdul Ghani, Social Activist, Green Man of India. The valedictory function was graced by the presence of Mr. Vasanth, Director Mr.A.R.Venkatesan, Film Director, Mr.Velmurugan, Lyricist, Mr. Manoj Beno, Medical Director, billroth hospital Mr. K.Abdul Ghani, Social Activist."
+        android:textSize="18sp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="05/03/2013 - Distributed stationary to 135 students of class IX and X at Govt school, Adyar.\n\n29/08/2013 – Blood donation camp at MIT, Chromepet along with Rajiv Gandhi GH, collected 52 units\n\n29/08/2013 – Blood donation camp at CSC, MEPZ along with Right Hospital Trust, collected 116 units\n\n12/09/2013 - Blood donation camp at CSC, DLF IT Park along with Right Hospital Trust, collected 65 units.\n\n30/10/2013 - Blood donation camp at Saidapet court campus along with Children hospital egmore, collected 65 units.\n\n09/11/2013 – Motivational talk and career guidance for class 10 students at Adhidravidar welfare govt. school, Palavakkam"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />1
+
+        <TextView
+            android:textColor="#c444"
+            android:textSize="32sp"
+            android:typeface="monospace"
+            android:textStyle="italic"
+            android:layout_margin="20dp"
+            android:text="Future Plans"
+            android:shadowColor="#c444"
+            android:shadowDy="2.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Organize blood donation and awareness camps in colleges and schools\n\nSupport visually challenged students.\n\nAdopt a needy orphanage or home and conduct periodic health check ups.\n\nLaunch Aathmasparan scholarships to help needy students continue their studies and try to reduce the no. of school dropouts due to lack of financial support.\n\nGather volunteers and conduct tuition classes in orphanages.\n\nConduct career guidance programs at Govt. schools."
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+    </LinearLayout>
+</ScrollView>

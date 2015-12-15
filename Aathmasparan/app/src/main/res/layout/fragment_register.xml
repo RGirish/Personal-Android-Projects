@@ -1,0 +1,191 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:id="@+id/regScrollView"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#fff"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textColor="#c444"
+            android:textSize="32sp"
+            android:typeface="monospace"
+            android:textStyle="italic"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="Register as Donor"
+            android:shadowColor="#c444"
+            android:shadowDy="2.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Disclaimer - By registering with us, you accept to publish your details online for the public to view."
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/name"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:hint="Name"
+            android:maxLength="100"
+            android:inputType="textCapWords"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/username"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:maxLength="50"
+            android:hint="Username"
+            android:inputType="text"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/password"
+            android:textSize="18sp"
+            android:maxLength="50"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/phone"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:hint="Phone Number"
+            android:inputType="number"
+            android:textStyle="italic"
+            android:maxLength="10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/email"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:hint="Email ID"
+            android:maxLength="250"
+            android:inputType="textEmailAddress"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/address1"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:maxLength="200"
+            android:hint="Address Line 1"
+            android:inputType="textCapWords"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/address2"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:maxLength="200"
+            android:hint="Address Line 2"
+            android:inputType="textCapWords"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/city"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:maxLength="100"
+            android:hint="City / District / Town"
+            android:inputType="text"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/pincode"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:hint="Pincode"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/state"
+            android:layout_margin="20dp"
+            android:entries="@array/states"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+
+        <Spinner
+            android:id="@+id/bloodtype"
+            android:layout_margin="20dp"
+            android:entries="@array/bloodtypes"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+
+        <TextView
+            android:text="Set Date of Birth"
+            android:id="@+id/dob"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Set Last Donation Date"
+            android:id="@+id/lastdonation"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:text="Register"
+            android:textColor="#444"
+            android:onClick="onClickRegister"
+            android:layout_margin="26dp"
+            android:padding="20dp"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>
