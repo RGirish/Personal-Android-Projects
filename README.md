@@ -36,4 +36,11 @@ An Application for birthday reminders. Just with a little different touch! I fin
 
 In February 2014, a friend and I conducted a week-long workshop on Android Developmemnt on behalf of [Stigmata Techno Solutions](http://www.stigmata.co.in) in St.Joseph's College of Engineering, Chennai, India. We covered the basics and some advanced topics, for a class of 30 junior undergraduate students. This repo has the contents of the study material that I created for this sake and a lot of sample applications that I created during the workshop to demonstrate the concepts. 
 
-*Tech stuff: Used [Reveal JS](http://lab.hakim.se/reveal-js/#/) - a HTML Presentation Framework - for the presentations. And of course, Java/XML for the apps.*
+*Tech stuff: Used [Reveal JS](http://lab.hakim.se/reveal-js/#/) - a HTML Presentation Framework - for the presentations. And of course, Java/XML for the apps. SQLite for local database construction. PHP/MySQL for the server side code.*
+
+##XnO's
+
+XnO's is the tic-tac-toe game. I was experimenting with SQLite in Android and I created this game with the features of creating user profiles and maintaining them. In this app, you can create user profiles, and for each game you win/lose you get/lose points. So there are high scores that are maintained. UI wise, I made it colorful and fun, giving the user the freedom to select the background and foreground colors to the game he is playing. 
+
+*Tech stuff: Java/XML for the app, PHP/MySQL for the backend.*
+
