@@ -24,8 +24,8 @@ public class LoginTask extends AsyncTask<String, Void, String>{
     @Override
     protected String doInBackground(String... params){
         try{
-            URL url = new URL("http://aathmasparan.in/login_app.php?"+params[0]);
-            Log.e("URL","http://aathmasparan.in/login_app.php?"+params[0]);
+            URL url = new URL("");
+            Log.e("URL","");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             System.out.println("Response Code: " + conn.getResponseCode());
