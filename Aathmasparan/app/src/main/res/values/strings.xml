@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">Aathmasparan</string>
+
+    <string name="title_section1">Home</string>
+    <string name="title_section2">About Us</string>
+    <string name="title_section3">Some Facts</string>
+    <string name="title_section4">Find a Donor</string>
+    <string name="title_section5">Register as Donor</string>
+    <string name="title_section6_logged_out">Donor Login</string>
+    <string name="title_section6_logged_in">Update Donor Profile</string>
+    <string name="title_section7">Contact</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+
+    <array name="states">
+        <item>Select Your State</item>
+        <item>Andaman and Nicobar Islands</item>
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chandigarh</item>
+        <item>Chhattisgarh</item>
+        <item>Dadra and Nagar Haveli</item>
+        <item>Daman and Diu</item>
+        <item>Delhi</item>
+        <item>Goa</item>
+        <item>Gujrat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jammu and Kashmir</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Lakshadweep</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Odisha</item>
+        <item>Puducherry</item>
+        <item>Punjab</item>
+        <item>Rajastan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Telengana</item>
+        <item>Tripura</item>
+        <item>Uttar Pradesh</item>
+        <item>Uttrakhand</item>
+        <item>West Bengal</item>
+    </array>
+
+    <array name="bloodtypes">
+        <item>Select Blood Type</item>
+        <item>A+ve</item>
+        <item>A-ve</item>
+        <item>B+ve</item>
+        <item>B-ve</item>
+        <item>AB+ve</item>
+        <item>AB-ve</item>
+        <item>A1+ve</item>
+        <item>A1-ve</item>
+        <item>A1B+ve</item>
+        <item>A1B-ve</item>
+        <item>A2+ve</item>
+        <item>A2-ve</item>
+        <item>A2B+ve</item>
+        <item>A2B-ve</item>
+        <item>O+ve</item>
+        <item>O-ve</item>
+        <item>Bombay</item>
+    </array>
+
+    <color name="primary">#ff6f69</color>
+    <color name="primaryDark">#c0584e</color>
+
+</resources>

@@ -1,0 +1,85 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:paddingTop="30dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:src="@drawable/logo"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="No 112, D.I.G Road, Kosi Mani Salai,"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:onClick="onClickAddress"
+        android:textSize="18sp"
+        android:typeface="serif"
+        android:textStyle="bold"
+        android:textColor="#c555"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Jaishankar Nagar, Palavakkam"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="18sp"
+        android:onClick="onClickAddress"
+        android:typeface="serif"
+        android:textStyle="bold"
+        android:textColor="#c555"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Chennai - 600 041. "
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="18sp"
+        android:typeface="serif"
+        android:onClick="onClickAddress"
+        android:textStyle="bold"
+        android:textColor="#c555"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="aathmasparan@gmail.com"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:textSize="16sp"
+        android:onClick="onClickEmail"
+        android:typeface="serif"
+        android:textStyle="bold"
+        android:textColor="#c555"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="+91 900 321 9694"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:onClick="onClickPhoneNumber"
+        android:typeface="serif"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
+        android:textColor="#c555"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</ScrollView>

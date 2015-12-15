@@ -1,0 +1,132 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#fff"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textColor="#c444"
+            android:textSize="32sp"
+            android:typeface="monospace"
+            android:textStyle="italic"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="Welcome to be a Hero!"
+            android:shadowColor="#c444"
+            android:shadowDy="2.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="You don't need six packs to be a real hero. A kind heart and a healthy body will do.\nYour tears cannot save a life! But, your blood can! Donate Blood! Save a Life!\nRegister as a Donor today with Aathmasparan and give someone another chance at LIFE!\n\nIf you began donating at the age of 18 and donated every 90 days until you reached 60, you would have donated 30 gallons of blood potentially saving more than 500 lives!.\n#So keep donating blood and saving lives!"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="#c444"
+            android:textSize="32sp"
+            android:typeface="monospace"
+            android:textStyle="italic"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="Benefits of Donating Blood"
+            android:shadowColor="#c444"
+            android:shadowDy="2.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Blood donation prevents the accumulation of toxic quantities in blood. Donating blood may reduce the risk of heart disease for men. Research publications indicate that repeated blood donation is effective in reducing blood pressure blood glucose low-density lipoprotein / high-density lipoprotein ratio, and heart rate."
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Aathmasparan salutes the Donors for providing invaluable service to humanity!"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="The donor should not have donated blood in the last 3 months.\nThe donor should not have undergone any major surgery within 3 months.\nThe donor has not had alcohol 48 hours before the donation.\nThe donor should avoid smoking on the day of donation and 3 hours after donation.\nThe donor should not have fever at the time of donation.\nThe donor should have had a good meal before donation.\nThe donor should disclose whether he is under any medication for malaria, jaundice, etc.\nThe donor should not have had any tooth extraction in the past 2 weeks.\nThe donor should not be pregnant.\nThe donor should not have had any immunization at least one month before."
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Donors should not be suffering from any of the following diseases or taking medicines for them"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Hepatitis B,C | AIDS / Diabetes | Fits / Convulsions | Cancer / Leprosy or any other infectious diseases | Any allergies (Only if you are suffering from severe symptoms) | Hemophilia/ Bleeding problems | Kidney disease | Heart disease | Hormonal disorders | Any other type of Jaundice (within 5 years) | Tuberculosis (within 2 years) | Chicken Pox (within 1 year) | Malaria (within 1 year) | Organ Transplant (within one year) | Blood Transfusion (within the last 6 months) | Blood Donation (within the last 3 months) | Major Surgery (within the last 3 months) | Small Pox Vaccination (within the last 3weeks) | Hemoglobin deficiency / Anemia (recently) | Drastic weight loss (recently)"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="#c444"
+            android:textSize="32sp"
+            android:typeface="monospace"
+            android:textStyle="italic"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="Facts about the blood donation process"
+            android:shadowColor="#c444"
+            android:shadowDy="2.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Donating blood is a safe process. A sterile needle is used only once for each donor and then discarded.\nBlood donation is a simple four-step process: registration, medical history and mini-physical, donation and refreshments\nEvery blood donor is given a mini-physical, checking the donor's temperature, blood pressure, pulse and hemoglobin to ensure it is safe for the donor to give blood.\nThe actual blood donation typically takes less than 10-12 minutes. The entire process, from the time you arrive to the time you leave, takes about an hour and 15 min.\nThe average adult has about 10 units of blood in his body. Roughly 1 unit is given during a donation.\nA healthy donor may donate red blood cells every 56 days, or double red cells every 112 days.\nA healthy donor may donate platelets as few as 7 days apart, but a maximum of 24 times a year.\nAll donated blood is tested for HIV, hepatitis B and C, syphilis and other infectious diseases before it can be transfused to patients."
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="#c444"
+            android:textSize="32sp"
+            android:typeface="monospace"
+            android:textStyle="italic"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="Frequency of Blood Types"
+            android:shadowColor="#c444"
+            android:shadowDy="2.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="O+ 1 person in 3\nO- 1 person in 15\nA+ 1 person in 3\nA- 1 person in 16\nB+ 1 person in 12\nB- 1 person in 67\nAB+ 1 person in 29\nAB- 1 person in 167"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>
