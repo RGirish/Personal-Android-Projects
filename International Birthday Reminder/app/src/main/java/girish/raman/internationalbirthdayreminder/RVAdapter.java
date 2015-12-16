@@ -14,11 +14,13 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
     public static class FormViewHolder extends RecyclerView.ViewHolder {
         TextView name;
         TextView birthday;
+        TextView id;
 
         FormViewHolder(View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.name);
             birthday = (TextView) itemView.findViewById(R.id.birthday);
+            id = (TextView) itemView.findViewById(R.id.contactID);
         }
     }
 
@@ -43,6 +45,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
     public void onBindViewHolder(FormViewHolder formViewHolder, int i) {
         formViewHolder.name.setText(contactDetails.get(i).name);
         formViewHolder.birthday.setText(contactDetails.get(i).birthday);
+        formViewHolder.id.setText(contactDetails.get(i).ID);
     }
 
     @Override

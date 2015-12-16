@@ -7,9 +7,11 @@ public class ContactDetails {
 
     String name;
     String birthday;
+    String ID;
 
-    ContactDetails(String name, String birthday) {
+    ContactDetails(String name, String birthday, String ID) {
         this.name = name;
         this.birthday = birthday;
+        this.ID = ID;
     }
 }

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Birthdays Overseas</string>
     <string name="action_settings">Settings</string>
+    <string name="setTimeZone">Set my Time Zone</string>
+    <string name="choose_your_time_zone">Choose your Time Zone</string>
+    <string name="set_as_my_time_zone">Set as my Time Zone</string>
 </resources>
