@@ -32,6 +32,12 @@ Cognit is an annual technical symposium of my college, MNM Jain Engineering Coll
 
 An Application for birthday reminders. Just with a little different touch! I find it hard to remember birthdays of the loved ones in a different Time Zone - to send my wishes at 00:00. This application (which is in progress) will let you set the timezone of your loved one, and it will remind you in your time to wish him/her at 00:00. 
 
+##Let Me Tell You!
+
+Let Me Tell You is an application that I developed to help out the Blind people in the world. Given their impairment, it is difficult to impossible for them to know certain day-to-day things like the date, time, the day, etc. Using an application on a phone is completely out of the picture. This app will let them do just that. I have coded into the app a special way to open it - using the physical volume buttons - the pattern UP DOWN DOWN UP will open the app and bring it to the foreground - just like touching the icon to open it. Now, swiping the (empty) screen left-right, right-left, top-bottom, bottom-top, etc will give you the date, time, etc. 
+
+*Tech stuff: Java/XML for the app.*
+
 ##St. Joseph's - Workshop Stuff
 
 In February 2014, a friend and I conducted a week-long workshop on Android Developmemnt on behalf of [Stigmata Techno Solutions](http://www.stigmata.co.in) in St.Joseph's College of Engineering, Chennai, India. We covered the basics and some advanced topics, for a class of 30 junior undergraduate students. This repo has the contents of the study material that I created for this sake and a lot of sample applications that I created during the workshop to demonstrate the concepts. 
