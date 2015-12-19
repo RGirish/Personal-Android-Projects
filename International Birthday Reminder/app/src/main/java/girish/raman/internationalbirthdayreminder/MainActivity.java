@@ -10,12 +10,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +27,7 @@ import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<ContactDetails> contactDetails;
+    List<Contact> contacts;
     SQLiteDatabase db;
 
     @Override
@@ -54,20 +56,54 @@ public class MainActivity extends AppCompatActivity {
                 new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Toast.makeText(MainActivity.this, ((TextView) view.findViewById(R.id.contactID)).getText().toString(), Toast.LENGTH_SHORT).show();
+                        final Dialog dialog = new Dialog(MainActivity.this);
+                        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        dialog.setContentView(R.layout.set_reminder);
+                        ((TextView) dialog.findViewById(R.id.setReminderChooseTimeZoneTextView)).setText("Choose " + ((TextView) view.findViewById(R.id.name)).getText().toString() + "'s Time Zone");
+                        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item);
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        String[] TZ = TimeZone.getAvailableIDs();
+                        ArrayList<String> TZ1 = new ArrayList<>();
+                        for (int i = 0; i < TZ.length; i++) {
+                            if (!(TZ1.contains(TimeZone.getTimeZone(TZ[i]).getDisplayName()))) {
+                                TZ1.add(TimeZone.getTimeZone(TZ[i]).getDisplayName());
+                            }
+                        }
+                        for (int i = 0; i < TZ1.size(); i++) {
+                            adapter.add(TZ1.get(i));
+                        }
+                        AppCompatSpinner TZone = (AppCompatSpinner) dialog.findViewById(R.id.setReminderSpinner);
+                        TZone.setAdapter(adapter);
+
+                        SwitchCompat switchCompat = (SwitchCompat) dialog.findViewById(R.id.setReminderSwitch);
+                        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                            @Override
+                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                if (isChecked) {
+                                    dialog.findViewById(R.id.setReminderChooseTimeZoneTextView).setVisibility(View.VISIBLE);
+                                    dialog.findViewById(R.id.setReminderSpinner).setVisibility(View.VISIBLE);
+                                } else {
+                                    dialog.findViewById(R.id.setReminderChooseTimeZoneTextView).setVisibility(View.GONE);
+                                    dialog.findViewById(R.id.setReminderSpinner).setVisibility(View.GONE);
+                                }
+                            }
+                        });
+
+                        dialog.show();
+                        //Toast.makeText(MainActivity.this, ((TextView) view.findViewById(R.id.contactID)).getText().toString(), Toast.LENGTH_SHORT).show();
                     }
                 })
         );
-        contactDetails = new ArrayList<>();
+        contacts = new ArrayList<>();
 
         while (cursor.moveToNext()) {
             String bDay = cursor.getString(bDayColumn);
             String name = cursor.getString(nameColumn);
             String id = cursor.getString(idColumn);
-            contactDetails.add(new ContactDetails(name, bDay, id));
+            contacts.add(new Contact(name, bDay, id));
         }
 
-        RVAdapter adapter = new RVAdapter(contactDetails);
+        RVAdapter adapter = new RVAdapter(contacts);
         rv.setAdapter(adapter);
     }
 
@@ -128,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     db.execSQL("DELETE FROM mytimezone;");
-                    Toast.makeText(MainActivity.this, TZone.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Your Time Zone is set to " + TZone.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
                     db.execSQL("INSERT INTO mytimezone VALUES('" + TZone.getSelectedItem().toString() + "');");
                     dialog.dismiss();
                 }

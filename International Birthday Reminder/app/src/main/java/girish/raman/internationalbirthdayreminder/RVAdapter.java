@@ -24,15 +24,15 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
         }
     }
 
-    List<ContactDetails> contactDetails;
+    List<Contact> contacts;
 
-    RVAdapter(List<ContactDetails> contactDetails){
-        this.contactDetails = contactDetails;
+    RVAdapter(List<Contact> contacts){
+        this.contacts = contacts;
     }
 
     @Override
     public int getItemCount() {
-        return contactDetails.size();
+        return contacts.size();
     }
 
     @Override
@@ -43,9 +43,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
 
     @Override
     public void onBindViewHolder(FormViewHolder formViewHolder, int i) {
-        formViewHolder.name.setText(contactDetails.get(i).name);
-        formViewHolder.birthday.setText(contactDetails.get(i).birthday);
-        formViewHolder.id.setText(contactDetails.get(i).ID);
+        formViewHolder.name.setText(contacts.get(i).name);
+        formViewHolder.birthday.setText(contacts.get(i).birthday);
+        formViewHolder.id.setText(contacts.get(i).ID);
     }
 
     @Override

@@ -4,4 +4,6 @@
     <string name="setTimeZone">Set my Time Zone</string>
     <string name="choose_your_time_zone">Choose your Time Zone</string>
     <string name="set_as_my_time_zone">Set as my Time Zone</string>
+    <string name="done">Done</string>
+    <string name="reminder">Reminder</string>
 </resources>
