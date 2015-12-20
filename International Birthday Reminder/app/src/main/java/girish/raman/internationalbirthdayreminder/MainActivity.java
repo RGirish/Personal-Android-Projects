@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
             db.execSQL("CREATE TABLE mytimezone(timezone TEXT)");
         } catch (Exception e) {
         }
+        try {
+            db.execSQL("CREATE TABLE reminders(contactID TEXT, name TEXT, birthday TEXT, timezone TEXT);");
+        } catch (Exception e) {
+        }
 
         // iterate through all Contact's Birthdays and print in log
         Cursor cursor = getContactsBirthdays();
@@ -55,10 +59,25 @@ public class MainActivity extends AppCompatActivity {
         rv.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
-                    public void onItemClick(View view, int position) {
+                    public void onItemClick(final View view, int position) {
+
                         final Dialog dialog = new Dialog(MainActivity.this);
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                         dialog.setContentView(R.layout.set_reminder);
+
+                        Cursor cursor = db.rawQuery("SELECT name, birthday, timezone FROM reminders WHERE contactid = '" + ((TextView) view.findViewById(R.id.contactID)).getText().toString() + "';", null);
+                        cursor.moveToFirst();
+                        final SwitchCompat switchCompat = (SwitchCompat) dialog.findViewById(R.id.setReminderSwitch);
+                        if (cursor.getCount() != 0) {
+                            switchCompat.setChecked(true);
+                            TextView textView = (TextView) dialog.findViewById(R.id.setReminderReminderSetTextView);
+                            textView.setText("Reminder set for " + cursor.getString(0) + " on " + cursor.getString(1) + " in " + cursor.getString(2));
+                            textView.setVisibility(View.VISIBLE);
+                        } else {
+                            dialog.findViewById(R.id.setReminderChooseTimeZoneTextView).setVisibility(View.VISIBLE);
+                            dialog.findViewById(R.id.setReminderSpinner).setVisibility(View.VISIBLE);
+                        }
+
                         ((TextView) dialog.findViewById(R.id.setReminderChooseTimeZoneTextView)).setText("Choose " + ((TextView) view.findViewById(R.id.name)).getText().toString() + "'s Time Zone");
                         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item);
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -75,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
                         AppCompatSpinner TZone = (AppCompatSpinner) dialog.findViewById(R.id.setReminderSpinner);
                         TZone.setAdapter(adapter);
 
-                        SwitchCompat switchCompat = (SwitchCompat) dialog.findViewById(R.id.setReminderSwitch);
                         switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                             @Override
                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -85,12 +103,34 @@ public class MainActivity extends AppCompatActivity {
                                 } else {
                                     dialog.findViewById(R.id.setReminderChooseTimeZoneTextView).setVisibility(View.GONE);
                                     dialog.findViewById(R.id.setReminderSpinner).setVisibility(View.GONE);
+                                    dialog.findViewById(R.id.setReminderReminderSetTextView).setVisibility(View.GONE);
                                 }
                             }
                         });
 
+                        dialog.findViewById(R.id.setReminderDoneButton).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String contactID = ((TextView) view.findViewById(R.id.contactID)).getText().toString();
+                                if (switchCompat.isChecked()) {
+                                    String name = ((TextView) view.findViewById(R.id.name)).getText().toString();
+                                    String birthday = ((TextView) view.findViewById(R.id.birthday)).getText().toString();
+                                    String timezone = ((AppCompatSpinner) dialog.findViewById(R.id.setReminderSpinner)).getSelectedItem().toString();
+                                    db.execSQL("INSERT INTO reminders VALUES('" + contactID + "','" + name + "','" + birthday + "','" + timezone + "');");
+
+                                    /*
+                                     * Gotta do UPDATE here
+                                     */
+
+
+                                } else {
+                                    db.execSQL("DELETE FROM reminders WHERE contactid='" + contactID + "';");
+                                    Toast.makeText(MainActivity.this, "Reminder deleted!", Toast.LENGTH_SHORT).show();
+                                }
+                                dialog.dismiss();
+                            }
+                        });
                         dialog.show();
-                        //Toast.makeText(MainActivity.this, ((TextView) view.findViewById(R.id.contactID)).getText().toString(), Toast.LENGTH_SHORT).show();
                     }
                 })
         );
