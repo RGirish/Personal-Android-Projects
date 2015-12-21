@@ -73,11 +73,7 @@ public class MainActivity extends AppCompatActivity {
                             TextView textView = (TextView) dialog.findViewById(R.id.setReminderReminderSetTextView);
                             textView.setText("Reminder set for " + cursor.getString(0) + " on " + cursor.getString(1) + " in " + cursor.getString(2));
                             textView.setVisibility(View.VISIBLE);
-                        } else {
-                            dialog.findViewById(R.id.setReminderChooseTimeZoneTextView).setVisibility(View.VISIBLE);
-                            dialog.findViewById(R.id.setReminderSpinner).setVisibility(View.VISIBLE);
                         }
-
                         ((TextView) dialog.findViewById(R.id.setReminderChooseTimeZoneTextView)).setText("Choose " + ((TextView) view.findViewById(R.id.name)).getText().toString() + "'s Time Zone");
                         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item);
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -116,16 +112,31 @@ public class MainActivity extends AppCompatActivity {
                                     String name = ((TextView) view.findViewById(R.id.name)).getText().toString();
                                     String birthday = ((TextView) view.findViewById(R.id.birthday)).getText().toString();
                                     String timezone = ((AppCompatSpinner) dialog.findViewById(R.id.setReminderSpinner)).getSelectedItem().toString();
-                                    db.execSQL("INSERT INTO reminders VALUES('" + contactID + "','" + name + "','" + birthday + "','" + timezone + "');");
+
+                                    Cursor c = db.rawQuery("SELECT COUNT(name) FROM reminders WHERE contactid='" + contactID + "';", null);
+                                    c.moveToFirst();
+                                    if (c.getInt(0) == 0) {
+                                        db.execSQL("INSERT INTO reminders VALUES('" + contactID + "','" + name + "','" + birthday + "','" + timezone + "');");
+                                    } else {
+                                        db.execSQL("UPDATE reminders SET timezone='" + timezone + "' WHERE contactid='" + contactID + "';");
+                                    }
+
 
                                     /*
-                                     * Gotta do UPDATE here
+                                     * Set the alarm
                                      */
 
 
+                                    c.close();
                                 } else {
-                                    db.execSQL("DELETE FROM reminders WHERE contactid='" + contactID + "';");
-                                    Toast.makeText(MainActivity.this, "Reminder deleted!", Toast.LENGTH_SHORT).show();
+                                    Cursor c = db.rawQuery("SELECT COUNT(name) FROM reminders WHERE contactid='" + contactID + "';", null);
+                                    c.moveToFirst();
+                                    if (c.getInt(0) != 0) {
+                                        db.execSQL("DELETE FROM reminders WHERE contactid='" + contactID + "';");
+                                        Toast.makeText(MainActivity.this, "Reminder deleted!", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(MainActivity.this, "No changes made!", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                                 dialog.dismiss();
                             }
