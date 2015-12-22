@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
         public void onReceive(Context context, Intent intent) {
 
-
             String action = intent.getAction();
             if (ACTION_USB_PERMISSION.equals(action)) {
                 synchronized (this) {
@@ -39,11 +38,11 @@ public class MainActivity extends AppCompatActivity {
                             int productId = usbDevice.getProductId();
 
 
-                            Log.i("device id", "****" + deviceId);
-                            Log.i("product id", "****" + productId);
+                            Log.e("device id", "****" + deviceId);
+                            Log.e("product id", "****" + productId);
 
                         } else {
-                            Log.i("device id", "No USB device");
+                            Log.e("device id", "No USB device");
                         }
 
                     } else {
@@ -65,4 +64,4 @@ public class MainActivity extends AppCompatActivity {
         registerReceiver(mUsbReceiver, filter);
     }
 
-}0
+}
