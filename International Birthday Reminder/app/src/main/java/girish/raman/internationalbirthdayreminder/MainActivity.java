@@ -1,11 +1,13 @@
 package girish.raman.internationalbirthdayreminder;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.LinearLayoutManager;
@@ -36,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = new Intent();
+        intent.setAction("girish.raman.birthdaysoverseas.NOTIFICATION_INTENT");
+        intent.putExtra("name", "Girish Raman");
+        sendBroadcast(intent);
 
         db = openOrCreateDatabase("bdayoverseas.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
         try {
@@ -120,22 +127,17 @@ public class MainActivity extends AppCompatActivity {
                                     } else {
                                         db.execSQL("UPDATE reminders SET timezone='" + timezone + "' WHERE contactid='" + contactID + "';");
                                     }
-
-
-                                    /*
-                                     * Set the alarm
-                                     */
-
-
                                     c.close();
+
+                                    Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "Reminder set!", Snackbar.LENGTH_LONG).show();
                                 } else {
                                     Cursor c = db.rawQuery("SELECT COUNT(name) FROM reminders WHERE contactid='" + contactID + "';", null);
                                     c.moveToFirst();
                                     if (c.getInt(0) != 0) {
                                         db.execSQL("DELETE FROM reminders WHERE contactid='" + contactID + "';");
-                                        Toast.makeText(MainActivity.this, "Reminder deleted!", Toast.LENGTH_SHORT).show();
+                                        Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "Reminder deleted!", Snackbar.LENGTH_LONG).show();
                                     } else {
-                                        Toast.makeText(MainActivity.this, "No changes made!", Toast.LENGTH_SHORT).show();
+                                        Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "No changes made!", Snackbar.LENGTH_LONG).show();
                                     }
                                 }
                                 dialog.dismiss();

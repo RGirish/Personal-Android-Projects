@@ -3,6 +3,7 @@
     package="girish.raman.internationalbirthdayreminder">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -24,7 +25,11 @@
         <receiver
             android:name=".MyBroadcastReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="girish.raman.birthdaysoverseas.NOTIFICATION_INTENT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
