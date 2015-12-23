@@ -10,6 +10,7 @@ import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,25 +27,20 @@ public class MainActivity extends AppCompatActivity {
             if (ACTION_USB_PERMISSION.equals(action)) {
                 synchronized (this) {
 
-                    usbDevice = (UsbDevice) intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+                    usbDevice = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
                     usbManager.requestPermission(usbDevice, mPermissionIntent);
 
                     if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
                         if (usbDevice != null) {
-                            //call method to set up device communication
-
-
                             int deviceId = usbDevice.getDeviceId();
                             int productId = usbDevice.getProductId();
-
-
                             Log.e("device id", "****" + deviceId);
                             Log.e("product id", "****" + productId);
-
+                            Toast.makeText(MainActivity.this, String.valueOf(deviceId), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, String.valueOf(productId), Toast.LENGTH_SHORT).show();
                         } else {
                             Log.e("device id", "No USB device");
                         }
-
                     } else {
                         Log.d("shiv", "permission denied for device ");
                     }
