@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Colors</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <color name="white">#ffffff</color>
+    <color name="green">#00ff00</color>
+    <color name="black">#000000</color>
+    <color name="grey">#777777</color>
+    <color name="red">#ff0000</color>
+    <color name="blue">#0000ff</color>
+    <string name="green">Green</string>
+    <string name="red">Red</string>
+
+</resources>
