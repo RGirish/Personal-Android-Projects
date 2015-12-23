@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MediaPlex1</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <string name="recent">Recent Activity</string>
+
+</resources>
