@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+    
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+                android:background="#ffffff"
+        android:layout_height="fill_parent" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+                android:background="#ffffff"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+                android:background="#ffffff"
+            android:layout_height="wrap_content" >
+
+            <ListView
+                android:id="@+id/nearby"
+                android:background="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="100dp" >
+            </ListView>
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:onClick="onclickscan"
+                android:background="#ffffff"
+                android:textStyle="bold"
+                android:textColor="#0082c8"
+                android:text="Scan for nearby devices" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
