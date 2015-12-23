@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+<LinearLayout 
+        android:id="@+id/llmain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/fbbale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fb Posts by balebesh!.."
+        android:typeface="sans"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+        	android:id="@+id/ll1"
+            android:layout_height="100dp"
+            android:orientation="horizontal" >
+        </LinearLayout>
+        
+    </HorizontalScrollView>
+    
+    
+    
+    <TextView
+        android:id="@+id/photosbale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Photos.."
+        android:typeface="sans"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScfrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:id="@+id/ll2"
+            android:orientation="horizontal" >
+        </LinearLayout>
+        
+    </HorizontalScrollView>
+    
+    
+    <TextView
+        android:id="@+id/videosbale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Videos.."
+        android:typeface="sans"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <HorizontalScrollView
+        android:id="@+id/horisdfzontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:id="@+id/ll3"
+            android:orientation="horizontal" >
+        </LinearLayout>
+        
+    </HorizontalScrollView>
+    
+    
+    <TextView
+        android:id="@+id/fbothers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fb Posts by Others.."
+        android:typeface="sans"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontawelScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:id="@+id/ll4"
+            android:orientation="horizontal" >
+        </LinearLayout>
+        
+    </HorizontalScrollView>
+    
+    
+    <TextView
+        android:id="@+id/photosothers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Photos by Others.."
+        android:typeface="sans"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalsdfScrollView1"
+        android:layout_width="wrap_content"        
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:id="@+id/ll5"
+            android:orientation="horizontal" >
+        </LinearLayout>
+        
+    </HorizontalScrollView>
+    
+    
+    <TextView
+        android:id="@+id/videosothers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Videos by Others.."
+        android:typeface="sans"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalSfghcrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:id="@+id/ll6"
+            android:orientation="horizontal" >
+        </LinearLayout>
+        
+    </HorizontalScrollView>
+    
+</LinearLayout>
+</ScrollView>
