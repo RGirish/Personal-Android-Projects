@@ -1,0 +1,17 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:text="Make Call"
+        android:onClick="onClickMakeCall"
+        android:textSize="18sp"
+        android:textColor="#303030"
+        android:background="@drawable/selector_btn"
+        android:layout_width="240dp"
+        android:layout_height="100dp" />
+
+</LinearLayout>
