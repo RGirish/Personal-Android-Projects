@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="/externalflash/NASA_Detail/NASA_Detail.xsl" type="text/xsl"?>
+<rss version="2.0">
+    <channel>
+        <title>NASA Image of the Day</title>
+        <link>http://www.nasa.gov/multimedia/imagegallery/index.html</link>
+        <description>The latest NASA "Image of the Day" image.</description>
+        <language>en-us</language>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <managingEditor>yvette.smith-1@nasa.gov</managingEditor>
+        <webMaster>brian.dunbar@nasa.gov</webMaster>
+        <item xmlns:java_code="xalan://gov.nasa.build.Utils1"> 
+            <title>Hubble Observes Glowing, Fiery Shells of Gas</title> 
+            <link>http://www.nasa.gov/multimedia/imagegallery/image_feature_2460.html</link> 
+            <description>It may look like something from "The Lord of the Rings," but this fiery swirl is actually a planetary nebula known as ESO 456-67. Set against a backdrop of bright stars, the rust-colored object lies in the constellation of Sagittarius (The Archer), in the southern sky.In this image of ESO 456-67, it is possible to see the various layers of material expelled by the central star. Each appears in a different hue - red, orange, yellow, and green-tinted bands of gas are visible, with clear patches of space at the heart of the nebula. It is not fully understood how planetary nebulae form such a wide variety of shapes and structures; some appear to be spherical, some elliptical, others shoot material in waves from their polar regions, some look like hourglasses or figures of eight, and others resemble large, messy stellar explosions - to name but a few.&lt;em&gt;Image Credit: ESA/Hubble and NASA&lt;/em&gt;</description> 
+            <guid isPermaLink="true">http://www.nasa.gov/multimedia/imagegallery/image_feature_2460.html</guid> 
+            <pubDate>Fri, 01 Mar 2013 00:00:00 EST</pubDate> 
+            <enclosure length="1234567" type="image/jpeg" url="http://www.nasa.gov/images/content/730915main_730847main_potw1308a_516-387.jpg"/> 
+        </item>
+     </channel>
+</rss>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Xmlparsing</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="connection_lost">Connection Lost</string>
+    <string name="wifi">Wifi Connected</string>
+    <string name="xml_error">ERROR PARSING XML</string>
+
+</resources>

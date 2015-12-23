@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DatabaseApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="submit">Submit</string>
+    <string name="enter">Enter your name :)</string>
+    <string name="view">View</string>
+
+</resources>
