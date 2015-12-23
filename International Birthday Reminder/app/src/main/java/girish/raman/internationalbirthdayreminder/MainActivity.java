@@ -1,6 +1,8 @@
 package girish.raman.internationalbirthdayreminder;
 
+import android.app.AlarmManager;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -24,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     List<Contact> contacts;
     SQLiteDatabase db;
+    AlarmManager alarmManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +43,21 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Intent intent = new Intent();
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 18);
+        calendar.set(Calendar.MINUTE, 49);
+        Intent myIntent = new Intent(this, MyBroadcastReceiver.class);
+        myIntent.setAction("girish.raman.birthdaysoverseas.NOTIFICATION_INTENT");
+        myIntent.putExtra("name", "Girish");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, myIntent, 0);
+        alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
+
+        /*Intent intent = new Intent();
         intent.setAction("girish.raman.birthdaysoverseas.NOTIFICATION_INTENT");
         intent.putExtra("name", "Girish Raman");
-        sendBroadcast(intent);
+        sendBroadcast(intent);*/
 
         db = openOrCreateDatabase("bdayoverseas.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
         try {
