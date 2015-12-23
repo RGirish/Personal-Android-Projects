@@ -1,0 +1,470 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:id="@+id/ll1">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:background="#eee"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_height="fill_parent">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_height="fill_parent"
+                    android:animateLayoutChanges="true"
+                    android:id="@+id/mainll">
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:orientation="vertical"
+                    android:animateLayoutChanges="true"
+                    android:gravity="center_horizontal"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/mainll2">
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <ImageButton
+            android:id="@+id/fab"
+            android:layout_width="@dimen/round_button_diameter"
+            android:layout_height="@dimen/round_button_diameter"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="@dimen/add_button_margin"
+            android:layout_marginEnd="@dimen/add_button_margin"
+            android:tint="#fff"
+            android:onClick="onclickfab"
+            android:src="@drawable/plus"
+            android:background="@drawable/fab_selector"
+            tools:ignore="RtlCompat" />
+
+        <LinearLayout
+            android:background="@android:drawable/dialog_holo_light_frame"
+            android:gravity="center"
+            android:layout_marginRight="-50dp"
+            android:layout_marginLeft="-50dp"
+            android:layout_marginTop="-10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:background="#ff3f51b5"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="18dp"
+                android:id="@+id/ll"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:src="@drawable/ic_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <!--<TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:textColor="#fff"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="30sp"
+                    android:layout_height="wrap_content"
+                    android:text="Remind Me"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />-->
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>
+
+
+
+
+    <!--<TextView
+                android:layout_marginTop="105dp"
+                android:text="Current Reminders"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:gravity="center"
+                    android:onClick="onclicknew"
+                    android:layout_marginRight="-50dp"
+                    android:layout_marginLeft="-50dp"
+                    android:layout_marginTop="-8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:background="@drawable/reminder_selector"
+                        android:layout_width="match_parent"
+                        android:paddingRight="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:singleLine="true"
+                            android:textStyle="bold"
+                            android:ellipsize="end"
+                            android:text="Remember to return the library book after getting back from college! Or you know what? Just fuck it. Let me see what that asshole can do to me."
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginTop="15dp"
+                            android:textSize="18sp"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Tue 17, 2015 - 15:00"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="13sp"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:gravity="center"
+                    android:onClick="onclicknew"
+                    android:layout_marginRight="-50dp"
+                    android:layout_marginLeft="-50dp"
+                    android:layout_marginTop="-16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:background="@drawable/reminder_selector"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Girish"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginTop="15dp"
+                            android:textSize="18sp"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Tue 17, 2015 - 15:00"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="13sp"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:gravity="center"
+                    android:onClick="onclicknew"
+                    android:layout_marginRight="-50dp"
+                    android:layout_marginLeft="-50dp"
+                    android:layout_marginTop="-16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:background="@drawable/reminder_selector"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Jayashree"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginTop="15dp"
+                            android:textSize="18sp"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Tue 17, 2015 - 15:00"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="13sp"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:gravity="center"
+                    android:onClick="onclicknew"
+                    android:layout_marginRight="-50dp"
+                    android:layout_marginLeft="-50dp"
+                    android:layout_marginTop="-16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:background="@drawable/reminder_selector"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Ganesh"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginTop="15dp"
+                            android:textSize="18sp"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Tue 17, 2015 - 15:00"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="13sp"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:gravity="center"
+                    android:onClick="onclicknew"
+                    android:layout_marginRight="-50dp"
+                    android:layout_marginLeft="-50dp"
+                    android:layout_marginTop="-16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:background="@drawable/reminder_selector"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Jai Krishnan"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginTop="15dp"
+                            android:textSize="18sp"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Tue 17, 2015 - 15:00"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="13sp"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:text="Past Reminders"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="-20dp"
+                    android:layout_marginRight="-20dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Girish"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="50dp"
+                        android:padding="20dp"
+                        android:textSize="20sp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="-16dp"
+                    android:layout_marginLeft="-20dp"
+                    android:layout_marginRight="-20dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Gayathri"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="50dp"
+                        android:padding="20dp"
+                        android:textSize="20sp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="-16dp"
+                    android:layout_marginLeft="-20dp"
+                    android:layout_marginRight="-20dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Alfred Bitchcock"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="50dp"
+                        android:padding="20dp"
+                        android:textSize="20sp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="-16dp"
+                    android:layout_marginLeft="-20dp"
+                    android:layout_marginRight="-20dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Jeganathan"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="50dp"
+                        android:padding="20dp"
+                        android:textSize="20sp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="-16dp"
+                    android:layout_marginLeft="-20dp"
+                    android:layout_marginRight="-20dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Rajan"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="50dp"
+                        android:padding="20dp"
+                        android:textSize="20sp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="-16dp"
+                    android:layout_marginLeft="-20dp"
+                    android:layout_marginRight="-20dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Jayashree"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="50dp"
+                        android:padding="20dp"
+                        android:textSize="20sp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="-16dp"
+                    android:layout_marginLeft="-20dp"
+                    android:layout_marginRight="-20dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Tony Stark"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="50dp"
+                        android:padding="20dp"
+                        android:textSize="20sp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout> -->
