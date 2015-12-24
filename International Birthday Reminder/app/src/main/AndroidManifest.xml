@@ -27,9 +27,6 @@
             android:name=".MyBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
-            <intent-filter>
-                <action android:name="girish.raman.birthdaysoverseas.NOTIFICATION_INTENT" />
-            </intent-filter>
         </receiver>
     </application>
 
