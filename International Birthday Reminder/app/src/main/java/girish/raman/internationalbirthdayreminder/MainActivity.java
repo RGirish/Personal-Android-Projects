@@ -41,8 +41,8 @@ import java.util.TimeZone;
 public class MainActivity extends AppCompatActivity {
 
     List<Contact> contacts;
-    SQLiteDatabase db;
-    AlarmManager alarmManager;
+    static SQLiteDatabase db;
+    static AlarmManager alarmManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         final RecyclerView rv = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
-        rv.addOnItemTouchListener(
+        /*rv.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(final View view, int position) {
@@ -185,9 +185,9 @@ public class MainActivity extends AppCompatActivity {
                                         calendar.set(Calendar.HOUR_OF_DAY, 0);
                                         calendar.set(Calendar.MINUTE, 0);
 
-                                        /**
-                                          Calculate 00:00 in my time zone
-                                         */
+                                        *//**
+                                         Calculate 00:00 in my time zone
+                                         *//*
 
                                         Intent myIntent = new Intent(MainActivity.this, MyBroadcastReceiver.class);
                                         myIntent.putExtra("name", name);
@@ -199,9 +199,9 @@ public class MainActivity extends AppCompatActivity {
                                         Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "Reminder set!", Snackbar.LENGTH_LONG).show();
                                     } else {
                                         db.execSQL("UPDATE reminders SET timezone='" + timezone + "' WHERE contactid='" + contactID + "';");
-                                        /**
+                                        *//**
                                          * delete already set reminder and set a new one
-                                         */
+                                         *//*
                                         Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "Reminder updated!", Snackbar.LENGTH_LONG).show();
                                     }
                                     c.close();
@@ -230,8 +230,10 @@ public class MainActivity extends AppCompatActivity {
                         dialog.show();
                     }
                 })
-        );
+        );*/
         contacts = new ArrayList<>();
+
+
 
         while (cursor.moveToNext()) {
             String name = cursor.getString(nameColumn);
@@ -256,6 +258,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
+            /*
+                some comment :D 
+             */
             Calendar myCal = new GregorianCalendar();
             myCal.setTime(theDate);
             String birthday = new DateFormatSymbols().getMonths()[myCal.get(Calendar.MONTH)] + " " + String.valueOf(myCal.get(Calendar.DAY_OF_MONTH)) + ", " + String.valueOf(myCal.get(Calendar.YEAR));
@@ -270,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
             cursor2.close();
         }
 
-        RVAdapter adapter = new RVAdapter(contacts);
+        RVAdapter adapter = new RVAdapter(contacts, this);
         rv.setAdapter(adapter);
     }
 
