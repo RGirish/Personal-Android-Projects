@@ -6,7 +6,6 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
         }
         try {
-            db.execSQL("CREATE TABLE reminders(contactID TEXT, name TEXT, birthday TEXT, timezone TEXT, alarmID TEXT);");
+            db.execSQL("CREATE TABLE reminders(contactid TEXT, name TEXT, birthday TEXT, timezone TEXT, alarmid TEXT);");
         } catch (Exception e) {
         }
 
@@ -135,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                                     if (temp.getInt(0) == 0) {
                                         dialog.dismiss();
                                         final Snackbar snackbar = Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "First, you need to set your Timezone! Access the menu to do that!", Snackbar.LENGTH_INDEFINITE);
-                                        snackbar.setActionTextColor(ContextCompat.getColor(MainActivity.this,R.color.colorPrimary));
+                                        snackbar.setActionTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
                                         snackbar.setAction("OK", new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
@@ -187,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
                                         calendar.set(Calendar.MINUTE, 0);
 
                                         /**
-                                         * Calculate 00:00 in my time zone
+                                          Calculate 00:00 in my time zone
                                          */
 
                                         Intent myIntent = new Intent(MainActivity.this, MyBroadcastReceiver.class);
@@ -200,8 +199,8 @@ public class MainActivity extends AppCompatActivity {
                                         Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "Reminder set!", Snackbar.LENGTH_LONG).show();
                                     } else {
                                         db.execSQL("UPDATE reminders SET timezone='" + timezone + "' WHERE contactid='" + contactID + "';");
-                                        /*
-                                        delete already set reminder and set a new one
+                                        /**
+                                         * delete already set reminder and set a new one
                                          */
                                         Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "Reminder updated!", Snackbar.LENGTH_LONG).show();
                                     }
@@ -210,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
                                     Cursor c = db.rawQuery("SELECT COUNT(name) FROM reminders WHERE contactid='" + contactID + "';", null);
                                     c.moveToFirst();
                                     if (c.getInt(0) != 0) {
-                                        Cursor cursor = db.rawQuery("SELECT alarmID,name FROM reminders WHERE contactid='" + contactID + "';", null);
+                                        Cursor cursor = db.rawQuery("SELECT alarmid,name FROM reminders WHERE contactid='" + contactID + "';", null);
                                         cursor.moveToFirst();
 
                                         Intent myIntent = new Intent(MainActivity.this, MyBroadcastReceiver.class);
@@ -260,7 +259,15 @@ public class MainActivity extends AppCompatActivity {
             Calendar myCal = new GregorianCalendar();
             myCal.setTime(theDate);
             String birthday = new DateFormatSymbols().getMonths()[myCal.get(Calendar.MONTH)] + " " + String.valueOf(myCal.get(Calendar.DAY_OF_MONTH)) + ", " + String.valueOf(myCal.get(Calendar.YEAR));
-            contacts.add(new Contact(name, birthday, id));
+            Cursor cursor2 = db.rawQuery("SELECT timezone FROM reminders WHERE contactid='" + id + "';", null);
+            cursor2.moveToFirst();
+            try{
+                String timeZone = cursor2.getString(0);
+                contacts.add(new Contact(name, birthday, id, true, "in " + timeZone));
+            }catch (Exception e){
+                contacts.add(new Contact(name, birthday, id, false, ""));
+            }
+            cursor2.close();
         }
 
         RVAdapter adapter = new RVAdapter(contacts);
