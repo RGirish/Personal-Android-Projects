@@ -65,6 +65,24 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
             @Override
             public void onClick(View v) {
                 if (((SwitchCompat) v).isChecked()) {
+
+                    Cursor temp = MainActivity.db.rawQuery("SELECT COUNT(timezone) FROM mytimezone;", null);
+                    temp.moveToFirst();
+                    if (temp.getInt(0) == 0) {
+                        final Snackbar snackbar = Snackbar.make(activity.findViewById(R.id.mainCoordinatorLayout), "First, you need to set your Timezone. Access the menu to do that!", Snackbar.LENGTH_INDEFINITE);
+                        snackbar.setActionTextColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+                        snackbar.setAction("OK", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                snackbar.dismiss();
+                            }
+                        });
+                        snackbar.show();
+                        temp.close();
+                        ((SwitchCompat) v).setChecked(false);
+                        return;
+                    }
+
                     final String name = contacts.get(i).name;
                     final String birthday = contacts.get(i).birthday;
 
@@ -92,21 +110,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
                         public void onClick(DialogInterface dialog, int pos) {
                             dialog.dismiss();
                             String timezone = TZ2[pos];
-                            Cursor temp = MainActivity.db.rawQuery("SELECT COUNT(timezone) FROM mytimezone;", null);
-                            temp.moveToFirst();
-                            if (temp.getInt(0) == 0) {
-                                final Snackbar snackbar = Snackbar.make(activity.findViewById(R.id.mainCoordinatorLayout), "First, you need to set your Timezone! Access the menu to do that!", Snackbar.LENGTH_INDEFINITE);
-                                snackbar.setActionTextColor(ContextCompat.getColor(activity, R.color.colorPrimary));
-                                snackbar.setAction("OK", new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        snackbar.dismiss();
-                                    }
-                                });
-                                snackbar.show();
-                                temp.close();
-                                return;
-                            }
 
                             Cursor c = MainActivity.db.rawQuery("SELECT COUNT(name) FROM reminders WHERE contactid='" + contacts.get(i).ID + "';", null);
                             c.moveToFirst();

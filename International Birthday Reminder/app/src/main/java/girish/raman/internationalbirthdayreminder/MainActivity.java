@@ -2,11 +2,14 @@ package girish.raman.internationalbirthdayreminder;
 
 import android.app.AlarmManager;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +27,7 @@ import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -139,12 +143,14 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_set_time_zone) {
-            final Dialog dialog = new Dialog(this);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialog.setContentView(R.layout.set_my_time_zone);
-
-            ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            AlertDialog.Builder b = new AlertDialog.Builder(this);
+            b.setTitle("Select your Time Zone");
+            b.setCancelable(false);
+            b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
             String[] TZ = TimeZone.getAvailableIDs();
             ArrayList<String> TZ1 = new ArrayList<>();
             for (int i = 0; i < TZ.length; i++) {
@@ -152,189 +158,19 @@ public class MainActivity extends AppCompatActivity {
                     TZ1.add(TimeZone.getTimeZone(TZ[i]).getDisplayName());
                 }
             }
-            for (int i = 0; i < TZ1.size(); i++) {
-                adapter.add(TZ1.get(i));
-            }
-            final AppCompatSpinner TZone = (AppCompatSpinner) dialog.findViewById(R.id.timeZones);
-            TZone.setAdapter(adapter);
-            for (int i = 0; i < TZ1.size(); i++) {
-                if (TZ1.get(i).equals(TimeZone.getDefault().getDisplayName())) {
-                    TZone.setSelection(i);
-                }
-            }
-            dialog.findViewById(R.id.setTimeZoneButton).setOnClickListener(new View.OnClickListener() {
+            final String[] TZ2 = TZ1.toArray(new String[TZ1.size()]);
+            Arrays.sort(TZ2);
+            b.setItems(TZ2, new DialogInterface.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(DialogInterface dialog, int pos) {
                     db.execSQL("DELETE FROM mytimezone;");
-                    Toast.makeText(MainActivity.this, "Your Time Zone is set to " + TZone.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
-                    db.execSQL("INSERT INTO mytimezone VALUES('" + TZone.getSelectedItem().toString() + "');");
-                    dialog.dismiss();
+                    Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "Your Time Zone is set to " + TZ2[pos], Snackbar.LENGTH_LONG).show();
+                    db.execSQL("INSERT INTO mytimezone VALUES('" + TZ2[pos] + "');");
                 }
             });
-            dialog.show();
+            b.show();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
-
-/*rv.addOnItemTouchListener(
-                new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(final View view, int position) {
-
-                        final Dialog dialog = new Dialog(MainActivity.this);
-                        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                        dialog.setContentView(R.layout.set_reminder);
-
-                        final Cursor cursor = db.rawQuery("SELECT name, birthday, timezone FROM reminders WHERE contactid = '" + ((TextView) view.findViewById(R.id.contactID)).getText().toString() + "';", null);
-                        cursor.moveToFirst();
-                        final SwitchCompat switchCompat = (SwitchCompat) dialog.findViewById(R.id.setReminderSwitch);
-                        if (cursor.getCount() != 0) {
-                            switchCompat.setChecked(true);
-                            TextView textView = (TextView) dialog.findViewById(R.id.setReminderReminderSetTextView);
-                            textView.setText("Reminder set for " + cursor.getString(0) + " in " + cursor.getString(2));
-                            textView.setVisibility(View.VISIBLE);
-                        }
-                        ((TextView) dialog.findViewById(R.id.setReminderChooseTimeZoneTextView)).setText("Choose " + ((TextView) view.findViewById(R.id.name)).getText().toString() + "'s Time Zone");
-                        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item);
-                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        String[] TZ = TimeZone.getAvailableIDs();
-                        ArrayList<String> TZ1 = new ArrayList<>();
-                        for (int i = 0; i < TZ.length; i++) {
-                            if (!(TZ1.contains(TimeZone.getTimeZone(TZ[i]).getDisplayName()))) {
-                                TZ1.add(TimeZone.getTimeZone(TZ[i]).getDisplayName());
-                            }
-                        }
-                        for (int i = 0; i < TZ1.size(); i++) {
-                            adapter.add(TZ1.get(i));
-                        }
-                        AppCompatSpinner TZone = (AppCompatSpinner) dialog.findViewById(R.id.setReminderSpinner);
-                        TZone.setAdapter(adapter);
-
-                        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                            @Override
-                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                if (isChecked) {
-                                    dialog.findViewById(R.id.setReminderChooseTimeZoneTextView).setVisibility(View.VISIBLE);
-                                    dialog.findViewById(R.id.setReminderSpinner).setVisibility(View.VISIBLE);
-                                } else {
-                                    dialog.findViewById(R.id.setReminderChooseTimeZoneTextView).setVisibility(View.GONE);
-                                    dialog.findViewById(R.id.setReminderSpinner).setVisibility(View.GONE);
-                                    dialog.findViewById(R.id.setReminderReminderSetTextView).setVisibility(View.GONE);
-                                }
-                            }
-                        });
-
-                        dialog.findViewById(R.id.setReminderDoneButton).setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                String contactID = ((TextView) view.findViewById(R.id.contactID)).getText().toString();
-                                if (switchCompat.isChecked()) {
-                                    String name = ((TextView) view.findViewById(R.id.name)).getText().toString();
-                                    String birthday = ((TextView) view.findViewById(R.id.birthday)).getText().toString();
-                                    String timezone = ((AppCompatSpinner) dialog.findViewById(R.id.setReminderSpinner)).getSelectedItem().toString();
-
-                                    Cursor temp = db.rawQuery("SELECT COUNT(timezone) FROM mytimezone;", null);
-                                    temp.moveToFirst();
-                                    if (temp.getInt(0) == 0) {
-                                        dialog.dismiss();
-                                        final Snackbar snackbar = Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "First, you need to set your Timezone! Access the menu to do that!", Snackbar.LENGTH_INDEFINITE);
-                                        snackbar.setActionTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
-                                        snackbar.setAction("OK", new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                snackbar.dismiss();
-                                            }
-                                        });
-                                        snackbar.show();
-                                        temp.close();
-                                        return;
-                                    }
-
-                                    Cursor c = db.rawQuery("SELECT COUNT(name) FROM reminders WHERE contactid='" + contactID + "';", null);
-                                    c.moveToFirst();
-                                    if (c.getInt(0) == 0) {
-
-                                        SimpleDateFormat format = new SimpleDateFormat("MMM dd,yyyy", Locale.ENGLISH);
-                                        Date theDate = null;
-                                        try {
-                                            theDate = format.parse(birthday);
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        Calendar bdayCal = new GregorianCalendar();
-                                        bdayCal.setTime(theDate);
-
-                                        Calendar calendar = Calendar.getInstance();
-                                        calendar.set(Calendar.DAY_OF_MONTH, bdayCal.get(Calendar.DAY_OF_MONTH));
-                                        calendar.set(Calendar.MONTH, bdayCal.get(Calendar.MONTH));
-
-                                        int bdayMonth = bdayCal.get(Calendar.MONTH);
-                                        int currentMonth = Calendar.getInstance().get(Calendar.MONTH);
-
-                                        int bdayDate = bdayCal.get(Calendar.DAY_OF_MONTH);
-                                        int currentDate = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-
-                                        if (currentMonth > bdayMonth) {
-                                            calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR) + 1);
-                                        } else {
-                                            if (currentMonth == bdayMonth) {
-                                                if (currentDate > bdayDate)
-                                                    calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR) + 1);
-                                                else
-                                                    calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
-                                            } else {
-                                                calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
-                                            }
-                                        }
-                                        calendar.set(Calendar.HOUR_OF_DAY, 0);
-                                        calendar.set(Calendar.MINUTE, 0);
-
-                                        *//**
- Calculate 00:00 in my time zone
- *//*
-
-                                        Intent myIntent = new Intent(MainActivity.this, MyBroadcastReceiver.class);
-                                        myIntent.putExtra("name", name);
-                                        int alarmID = (int) System.currentTimeMillis();
-                                        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, alarmID, myIntent, 0);
-                                        alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
-
-                                        db.execSQL("INSERT INTO reminders VALUES('" + contactID + "','" + name + "','" + birthday + "','" + timezone + "','" + alarmID + "');");
-                                        Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "Reminder set!", Snackbar.LENGTH_LONG).show();
-                                    } else {
-                                        db.execSQL("UPDATE reminders SET timezone='" + timezone + "' WHERE contactid='" + contactID + "';");
-                                        *//**
- * delete already set reminder and set a new one
- *//*
-                                        Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "Reminder updated!", Snackbar.LENGTH_LONG).show();
-                                    }
-                                    c.close();
-                                } else {
-                                    Cursor c = db.rawQuery("SELECT COUNT(name) FROM reminders WHERE contactid='" + contactID + "';", null);
-                                    c.moveToFirst();
-                                    if (c.getInt(0) != 0) {
-                                        Cursor cursor = db.rawQuery("SELECT alarmid,name FROM reminders WHERE contactid='" + contactID + "';", null);
-                                        cursor.moveToFirst();
-
-                                        Intent myIntent = new Intent(MainActivity.this, MyBroadcastReceiver.class);
-                                        myIntent.putExtra("name", cursor.getString(1));
-                                        int alarmID = Integer.parseInt(cursor.getString(0));
-                                        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, alarmID, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-                                        alarmManager.cancel(pendingIntent);
-
-                                        db.execSQL("DELETE FROM reminders WHERE contactid='" + contactID + "';");
-                                        Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "Reminder deleted!", Snackbar.LENGTH_LONG).show();
-                                    } else {
-                                        Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "No changes made!", Snackbar.LENGTH_LONG).show();
-                                    }
-                                }
-                                dialog.dismiss();
-                            }
-                        });
-                        dialog.show();
-                    }
-                })
-        );*/
