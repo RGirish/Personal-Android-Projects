@@ -2,20 +2,15 @@ package girish.raman.internationalbirthdayreminder;
 
 import android.app.AlarmManager;
 import android.app.Dialog;
-import android.app.PendingIntent;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -23,8 +18,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormatSymbols;
@@ -40,9 +33,9 @@ import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<Contact> contacts;
     static SQLiteDatabase db;
     static AlarmManager alarmManager;
+    List<Contact> contacts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +65,121 @@ public class MainActivity extends AppCompatActivity {
         final RecyclerView rv = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
-        /*rv.addOnItemTouchListener(
+        contacts = new ArrayList<>();
+
+        while (cursor.moveToNext()) {
+            String name = cursor.getString(nameColumn);
+            String bDay = cursor.getString(bDayColumn);
+            String id = cursor.getString(idColumn);
+
+            SimpleDateFormat format = new SimpleDateFormat("MMM dd,yyyy", Locale.ENGLISH);
+            Date theDate;
+            try {
+                theDate = format.parse(bDay);
+            } catch (ParseException e) {
+                format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+                try {
+                    theDate = format.parse(bDay);
+                } catch (ParseException e2) {
+                    format = new SimpleDateFormat("--MM-dd", Locale.ENGLISH);
+                    try {
+                        theDate = format.parse(bDay);
+                    } catch (ParseException e3) {
+                        Log.e("ParseException", "ParseException");
+                        continue;
+                    }
+                }
+            }
+
+            Calendar myCal = new GregorianCalendar();
+            myCal.setTime(theDate);
+            String birthday = new DateFormatSymbols().getMonths()[myCal.get(Calendar.MONTH)] + " " + String.valueOf(myCal.get(Calendar.DAY_OF_MONTH)) + ", " + String.valueOf(myCal.get(Calendar.YEAR));
+            Cursor cursor2 = db.rawQuery("SELECT timezone FROM reminders WHERE contactid='" + id + "';", null);
+            cursor2.moveToFirst();
+            try {
+                String timeZone = cursor2.getString(0);
+                contacts.add(new Contact(name, birthday, id, true, "in " + timeZone));
+            } catch (Exception e) {
+                contacts.add(new Contact(name, birthday, id, false, ""));
+            }
+            cursor2.close();
+        }
+
+        RVAdapter adapter = new RVAdapter(contacts, this);
+        rv.setAdapter(adapter);
+    }
+
+    private Cursor getContactsBirthdays() {
+        Uri uri = ContactsContract.Data.CONTENT_URI;
+
+        String[] projection = new String[]{
+                ContactsContract.Contacts.DISPLAY_NAME,
+                ContactsContract.CommonDataKinds.Event.CONTACT_ID,
+                ContactsContract.CommonDataKinds.Event.START_DATE
+        };
+
+        String where =
+                ContactsContract.Data.MIMETYPE + "= ? AND " +
+                        ContactsContract.CommonDataKinds.Event.TYPE + "=" +
+                        ContactsContract.CommonDataKinds.Event.TYPE_BIRTHDAY;
+        String[] selectionArgs = new String[]{
+                ContactsContract.CommonDataKinds.Event.CONTENT_ITEM_TYPE
+        };
+        return getContentResolver().query(uri, projection, where, selectionArgs, ContactsContract.Contacts.DISPLAY_NAME);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_set_time_zone) {
+            final Dialog dialog = new Dialog(this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.set_my_time_zone);
+
+            ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            String[] TZ = TimeZone.getAvailableIDs();
+            ArrayList<String> TZ1 = new ArrayList<>();
+            for (int i = 0; i < TZ.length; i++) {
+                if (!(TZ1.contains(TimeZone.getTimeZone(TZ[i]).getDisplayName()))) {
+                    TZ1.add(TimeZone.getTimeZone(TZ[i]).getDisplayName());
+                }
+            }
+            for (int i = 0; i < TZ1.size(); i++) {
+                adapter.add(TZ1.get(i));
+            }
+            final AppCompatSpinner TZone = (AppCompatSpinner) dialog.findViewById(R.id.timeZones);
+            TZone.setAdapter(adapter);
+            for (int i = 0; i < TZ1.size(); i++) {
+                if (TZ1.get(i).equals(TimeZone.getDefault().getDisplayName())) {
+                    TZone.setSelection(i);
+                }
+            }
+            dialog.findViewById(R.id.setTimeZoneButton).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    db.execSQL("DELETE FROM mytimezone;");
+                    Toast.makeText(MainActivity.this, "Your Time Zone is set to " + TZone.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+                    db.execSQL("INSERT INTO mytimezone VALUES('" + TZone.getSelectedItem().toString() + "');");
+                    dialog.dismiss();
+                }
+            });
+            dialog.show();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}
+
+/*rv.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(final View view, int position) {
@@ -186,8 +293,8 @@ public class MainActivity extends AppCompatActivity {
                                         calendar.set(Calendar.MINUTE, 0);
 
                                         *//**
-                                         Calculate 00:00 in my time zone
-                                         *//*
+ Calculate 00:00 in my time zone
+ *//*
 
                                         Intent myIntent = new Intent(MainActivity.this, MyBroadcastReceiver.class);
                                         myIntent.putExtra("name", name);
@@ -200,8 +307,8 @@ public class MainActivity extends AppCompatActivity {
                                     } else {
                                         db.execSQL("UPDATE reminders SET timezone='" + timezone + "' WHERE contactid='" + contactID + "';");
                                         *//**
-                                         * delete already set reminder and set a new one
-                                         *//*
+ * delete already set reminder and set a new one
+ *//*
                                         Snackbar.make(findViewById(R.id.mainCoordinatorLayout), "Reminder updated!", Snackbar.LENGTH_LONG).show();
                                     }
                                     c.close();
@@ -231,120 +338,3 @@ public class MainActivity extends AppCompatActivity {
                     }
                 })
         );*/
-        contacts = new ArrayList<>();
-
-
-
-        while (cursor.moveToNext()) {
-            String name = cursor.getString(nameColumn);
-            String bDay = cursor.getString(bDayColumn);
-            String id = cursor.getString(idColumn);
-
-            SimpleDateFormat format = new SimpleDateFormat("MMM dd,yyyy", Locale.ENGLISH);
-            Date theDate;
-            try {
-                theDate = format.parse(bDay);
-            } catch (ParseException e) {
-                format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-                try {
-                    theDate = format.parse(bDay);
-                } catch (ParseException e2) {
-                    format = new SimpleDateFormat("--MM-dd", Locale.ENGLISH);
-                    try {
-                        theDate = format.parse(bDay);
-                    } catch (ParseException e3) {
-                        Log.e("ParseException", "ParseException");
-                        continue;
-                    }
-                }
-            }
-            /*
-                some comment :D 
-             */
-            Calendar myCal = new GregorianCalendar();
-            myCal.setTime(theDate);
-            String birthday = new DateFormatSymbols().getMonths()[myCal.get(Calendar.MONTH)] + " " + String.valueOf(myCal.get(Calendar.DAY_OF_MONTH)) + ", " + String.valueOf(myCal.get(Calendar.YEAR));
-            Cursor cursor2 = db.rawQuery("SELECT timezone FROM reminders WHERE contactid='" + id + "';", null);
-            cursor2.moveToFirst();
-            try{
-                String timeZone = cursor2.getString(0);
-                contacts.add(new Contact(name, birthday, id, true, "in " + timeZone));
-            }catch (Exception e){
-                contacts.add(new Contact(name, birthday, id, false, ""));
-            }
-            cursor2.close();
-        }
-
-        RVAdapter adapter = new RVAdapter(contacts, this);
-        rv.setAdapter(adapter);
-    }
-
-    private Cursor getContactsBirthdays() {
-        Uri uri = ContactsContract.Data.CONTENT_URI;
-
-        String[] projection = new String[]{
-                ContactsContract.Contacts.DISPLAY_NAME,
-                ContactsContract.CommonDataKinds.Event.CONTACT_ID,
-                ContactsContract.CommonDataKinds.Event.START_DATE
-        };
-
-        String where =
-                ContactsContract.Data.MIMETYPE + "= ? AND " +
-                        ContactsContract.CommonDataKinds.Event.TYPE + "=" +
-                        ContactsContract.CommonDataKinds.Event.TYPE_BIRTHDAY;
-        String[] selectionArgs = new String[]{
-                ContactsContract.CommonDataKinds.Event.CONTENT_ITEM_TYPE
-        };
-        return getContentResolver().query(uri, projection, where, selectionArgs, ContactsContract.Contacts.DISPLAY_NAME);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_set_time_zone) {
-            final Dialog dialog = new Dialog(this);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialog.setContentView(R.layout.set_my_time_zone);
-
-            ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            String[] TZ = TimeZone.getAvailableIDs();
-            ArrayList<String> TZ1 = new ArrayList<>();
-            for (int i = 0; i < TZ.length; i++) {
-                if (!(TZ1.contains(TimeZone.getTimeZone(TZ[i]).getDisplayName()))) {
-                    TZ1.add(TimeZone.getTimeZone(TZ[i]).getDisplayName());
-                }
-            }
-            for (int i = 0; i < TZ1.size(); i++) {
-                adapter.add(TZ1.get(i));
-            }
-            final AppCompatSpinner TZone = (AppCompatSpinner) dialog.findViewById(R.id.timeZones);
-            TZone.setAdapter(adapter);
-            for (int i = 0; i < TZ1.size(); i++) {
-                if (TZ1.get(i).equals(TimeZone.getDefault().getDisplayName())) {
-                    TZone.setSelection(i);
-                }
-            }
-            dialog.findViewById(R.id.setTimeZoneButton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    db.execSQL("DELETE FROM mytimezone;");
-                    Toast.makeText(MainActivity.this, "Your Time Zone is set to " + TZone.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
-                    db.execSQL("INSERT INTO mytimezone VALUES('" + TZone.getSelectedItem().toString() + "');");
-                    dialog.dismiss();
-                }
-            });
-            dialog.show();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-}
