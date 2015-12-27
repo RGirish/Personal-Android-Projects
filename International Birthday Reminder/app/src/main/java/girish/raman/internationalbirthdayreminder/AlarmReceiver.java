@@ -12,9 +12,9 @@ import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.NotificationCompat;
 
-public class MyBroadcastReceiver extends BroadcastReceiver {
+public class AlarmReceiver extends BroadcastReceiver {
 
-    public MyBroadcastReceiver() {
+    public AlarmReceiver() {
     }
 
     @Override

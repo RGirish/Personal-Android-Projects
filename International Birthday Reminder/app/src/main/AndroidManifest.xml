@@ -24,7 +24,7 @@
         </activity>
 
         <receiver
-            android:name=".MyBroadcastReceiver"
+            android:name=".AlarmReceiver"
             android:enabled="true"
             android:exported="true">
         </receiver>

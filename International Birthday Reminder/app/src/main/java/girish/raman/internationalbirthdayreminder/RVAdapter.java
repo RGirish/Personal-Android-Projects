@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -86,17 +87,17 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
                     final String name = contacts.get(i).name;
                     final String birthday = contacts.get(i).birthday;
 
-                    String[] TZ = TimeZone.getAvailableIDs();
-                    ArrayList<String> TZ1 = new ArrayList<>();
+                    final String[] TZ = TimeZone.getAvailableIDs();
+                    /*ArrayList<String> TZ1 = new ArrayList<>();
                     for (int i = 0; i < TZ.length; i++) {
                         if (!(TZ1.contains(TimeZone.getTimeZone(TZ[i]).getDisplayName()))) {
                             TZ1.add(TimeZone.getTimeZone(TZ[i]).getDisplayName());
                         }
                     }
                     final String[] TZ2 = TZ1.toArray(new String[TZ1.size()]);
-                    Arrays.sort(TZ2);
+                    Arrays.sort(TZ2);*/
                     AlertDialog.Builder b = new AlertDialog.Builder(activity);
-                    b.setTitle("Select the person's Time Zone");
+                    b.setTitle("Select " + name + "'s Time Zone");
                     b.setCancelable(false);
                     b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         @Override
@@ -105,11 +106,11 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
                             formViewHolder.reminderSwitch.setChecked(false);
                         }
                     });
-                    b.setItems(TZ2, new DialogInterface.OnClickListener() {
+                    b.setItems(TZ, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int pos) {
                             dialog.dismiss();
-                            String timezone = TZ2[pos];
+                            String timezone = TZ[pos];
 
                             Cursor c = MainActivity.db.rawQuery("SELECT COUNT(name) FROM reminders WHERE contactid='" + contacts.get(i).ID + "';", null);
                             c.moveToFirst();
@@ -154,14 +155,36 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
                                  Calculate 00:00 in my time zone
                                  */
 
-                                Intent myIntent = new Intent(activity, MyBroadcastReceiver.class);
+                                Calendar now = Calendar.getInstance();
+                                TimeZone toTimeZone = now.getTimeZone();
+                                TimeZone fromTimeZone = TimeZone.getTimeZone("America/Phoenix");
+                                now.setTimeZone(fromTimeZone);
+                                now.set(Calendar.HOUR_OF_DAY, 0);
+                                now.set(Calendar.MINUTE, 0);
+                                now.set(Calendar.SECOND, 0);
+                                now.add(Calendar.MILLISECOND, fromTimeZone.getRawOffset() * -1);
+                                if (fromTimeZone.inDaylightTime(now.getTime())) {
+                                    now.add(Calendar.MILLISECOND, now.getTimeZone().getDSTSavings() * -1);
+                                }
+                                now.add(Calendar.MILLISECOND, toTimeZone.getRawOffset());
+                                if (toTimeZone.inDaylightTime(now.getTime())) {
+                                    now.add(Calendar.MILLISECOND, toTimeZone.getDSTSavings());
+                                }
+                                /*
+
+                                ??????????????????????
+
+                                 */
+                                Snackbar.make(activity.findViewById(R.id.mainCoordinatorLayout), String.valueOf(now.getTime()), Snackbar.LENGTH_INDEFINITE).show();
+
+                                Intent myIntent = new Intent(activity, AlarmReceiver.class);
                                 myIntent.putExtra("name", name);
                                 int alarmID = (int) System.currentTimeMillis();
                                 PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, alarmID, myIntent, 0);
                                 MainActivity.alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
 
                                 MainActivity.db.execSQL("INSERT INTO reminders VALUES('" + contacts.get(i).ID + "','" + name + "','" + birthday + "','" + timezone + "','" + alarmID + "');");
-                                Snackbar.make(activity.findViewById(R.id.mainCoordinatorLayout), "Reminder set!", Snackbar.LENGTH_LONG).show();
+                                //Snackbar.make(activity.findViewById(R.id.mainCoordinatorLayout), "Reminder set!", Snackbar.LENGTH_LONG).show();
                             } else {
                                 MainActivity.db.execSQL("UPDATE reminders SET timezone='" + timezone + "' WHERE contactid='" + contacts.get(i).ID + "';");
                                 /**
@@ -184,7 +207,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
                         Cursor cursor = MainActivity.db.rawQuery("SELECT alarmid,name FROM reminders WHERE contactid='" + contacts.get(i).ID + "';", null);
                         cursor.moveToFirst();
 
-                        Intent myIntent = new Intent(activity, MyBroadcastReceiver.class);
+                        Intent myIntent = new Intent(activity, AlarmReceiver.class);
                         myIntent.putExtra("name", cursor.getString(1));
                         int alarmID = Integer.parseInt(cursor.getString(0));
                         PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, alarmID, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
