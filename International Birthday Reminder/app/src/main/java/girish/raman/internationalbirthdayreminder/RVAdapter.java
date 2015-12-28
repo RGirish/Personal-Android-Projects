@@ -15,12 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -126,9 +123,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
                                 Calendar bdayCal = new GregorianCalendar();
                                 bdayCal.setTime(theDate);
 
-                                Calendar calendar = Calendar.getInstance();
-                                calendar.set(Calendar.DAY_OF_MONTH, bdayCal.get(Calendar.DAY_OF_MONTH));
-                                calendar.set(Calendar.MONTH, bdayCal.get(Calendar.MONTH));
+                                Calendar alarmCal = Calendar.getInstance();
+                                alarmCal.set(Calendar.DAY_OF_MONTH, bdayCal.get(Calendar.DAY_OF_MONTH));
+                                alarmCal.set(Calendar.MONTH, bdayCal.get(Calendar.MONTH));
 
                                 int bdayMonth = bdayCal.get(Calendar.MONTH);
                                 int currentMonth = Calendar.getInstance().get(Calendar.MONTH);
@@ -137,51 +134,43 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
                                 int currentDate = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 
                                 if (currentMonth > bdayMonth) {
-                                    calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR) + 1);
+                                    alarmCal.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR) + 1);
                                 } else {
                                     if (currentMonth == bdayMonth) {
                                         if (currentDate > bdayDate)
-                                            calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR) + 1);
+                                            alarmCal.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR) + 1);
                                         else
-                                            calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
+                                            alarmCal.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
                                     } else {
-                                        calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
+                                        alarmCal.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
                                     }
                                 }
-                                calendar.set(Calendar.HOUR_OF_DAY, 0);
-                                calendar.set(Calendar.MINUTE, 0);
+                                alarmCal.set(Calendar.HOUR_OF_DAY, 0);
+                                alarmCal.set(Calendar.MINUTE, 0);
 
-                                /**
-                                 Calculate 00:00 in my time zone
-                                 */
+                                Calendar bdayPersonsTime = new GregorianCalendar(TimeZone.getTimeZone(timezone));
+                                bdayPersonsTime.set(Calendar.HOUR, 0);
+                                bdayPersonsTime.set(Calendar.MINUTE, 0);
+                                bdayPersonsTime.set(Calendar.SECOND, 0);
+                                bdayPersonsTime.set(Calendar.MILLISECOND, 0);
 
-                                Calendar now = Calendar.getInstance();
-                                TimeZone toTimeZone = now.getTimeZone();
-                                TimeZone fromTimeZone = TimeZone.getTimeZone("America/Phoenix");
-                                now.setTimeZone(fromTimeZone);
-                                now.set(Calendar.HOUR_OF_DAY, 0);
-                                now.set(Calendar.MINUTE, 0);
-                                now.set(Calendar.SECOND, 0);
-                                now.add(Calendar.MILLISECOND, fromTimeZone.getRawOffset() * -1);
-                                if (fromTimeZone.inDaylightTime(now.getTime())) {
-                                    now.add(Calendar.MILLISECOND, now.getTimeZone().getDSTSavings() * -1);
-                                }
-                                now.add(Calendar.MILLISECOND, toTimeZone.getRawOffset());
-                                if (toTimeZone.inDaylightTime(now.getTime())) {
-                                    now.add(Calendar.MILLISECOND, toTimeZone.getDSTSavings());
-                                }
+                                Calendar localTime = Calendar.getInstance();
+                                localTime.setTimeInMillis(bdayPersonsTime.getTimeInMillis());
+
+                                alarmCal.set(Calendar.HOUR, bdayPersonsTime.get(Calendar.HOUR));
+                                alarmCal.set(Calendar.MINUTE, bdayPersonsTime.get(Calendar.MINUTE));
+                                alarmCal.set(Calendar.SECOND, bdayPersonsTime.get(Calendar.SECOND));
+                                alarmCal.set(Calendar.MILLISECOND, bdayPersonsTime.get(Calendar.MILLISECOND));
+
+                                Snackbar.make(activity.findViewById(R.id.mainCoordinatorLayout), String.valueOf(localTime.getTime()), Snackbar.LENGTH_INDEFINITE).show();
                                 /*
-
-                                ??????????????????????
-
+                                    Verify if time zone conversions are correct
                                  */
-                                Snackbar.make(activity.findViewById(R.id.mainCoordinatorLayout), String.valueOf(now.getTime()), Snackbar.LENGTH_INDEFINITE).show();
-
                                 Intent myIntent = new Intent(activity, AlarmReceiver.class);
                                 myIntent.putExtra("name", name);
                                 int alarmID = (int) System.currentTimeMillis();
                                 PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, alarmID, myIntent, 0);
-                                MainActivity.alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
+                                MainActivity.alarmManager.set(AlarmManager.RTC, alarmCal.getTimeInMillis(), pendingIntent);
 
                                 MainActivity.db.execSQL("INSERT INTO reminders VALUES('" + contacts.get(i).ID + "','" + name + "','" + birthday + "','" + timezone + "','" + alarmID + "');");
                                 //Snackbar.make(activity.findViewById(R.id.mainCoordinatorLayout), "Reminder set!", Snackbar.LENGTH_LONG).show();
