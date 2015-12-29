@@ -124,12 +124,12 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
                                 bdayCal.setTime(theDate);
 
                                 Calendar alarmCal = Calendar.getInstance();
-                                alarmCal.set(Calendar.DAY_OF_MONTH, bdayCal.get(Calendar.DAY_OF_MONTH));
-                                alarmCal.set(Calendar.MONTH, bdayCal.get(Calendar.MONTH));
+                                Calendar bdayPersonsTime = new GregorianCalendar(TimeZone.getTimeZone(timezone));
+                                bdayPersonsTime.set(Calendar.DAY_OF_MONTH, bdayCal.get(Calendar.DAY_OF_MONTH));
+                                bdayPersonsTime.set(Calendar.MONTH, bdayCal.get(Calendar.MONTH));
 
                                 int bdayMonth = bdayCal.get(Calendar.MONTH);
                                 int currentMonth = Calendar.getInstance().get(Calendar.MONTH);
-
                                 int bdayDate = bdayCal.get(Calendar.DAY_OF_MONTH);
                                 int currentDate = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 
@@ -145,10 +145,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
                                         alarmCal.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
                                     }
                                 }
-                                alarmCal.set(Calendar.HOUR_OF_DAY, 0);
-                                alarmCal.set(Calendar.MINUTE, 0);
 
-                                Calendar bdayPersonsTime = new GregorianCalendar(TimeZone.getTimeZone(timezone));
                                 bdayPersonsTime.set(Calendar.HOUR, 0);
                                 bdayPersonsTime.set(Calendar.MINUTE, 0);
                                 bdayPersonsTime.set(Calendar.SECOND, 0);
@@ -157,10 +154,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
                                 Calendar localTime = Calendar.getInstance();
                                 localTime.setTimeInMillis(bdayPersonsTime.getTimeInMillis());
 
-                                alarmCal.set(Calendar.HOUR, bdayPersonsTime.get(Calendar.HOUR));
-                                alarmCal.set(Calendar.MINUTE, bdayPersonsTime.get(Calendar.MINUTE));
-                                alarmCal.set(Calendar.SECOND, bdayPersonsTime.get(Calendar.SECOND));
-                                alarmCal.set(Calendar.MILLISECOND, bdayPersonsTime.get(Calendar.MILLISECOND));
+                                alarmCal.set(Calendar.HOUR_OF_DAY, localTime.get(Calendar.HOUR_OF_DAY));
+                                alarmCal.set(Calendar.MINUTE, localTime.get(Calendar.MINUTE));
+                                alarmCal.set(Calendar.SECOND, localTime.get(Calendar.SECOND));
+                                alarmCal.set(Calendar.MILLISECOND, localTime.get(Calendar.MILLISECOND));
 
                                 Snackbar.make(activity.findViewById(R.id.mainCoordinatorLayout), String.valueOf(localTime.getTime()), Snackbar.LENGTH_INDEFINITE).show();
                                 /*
