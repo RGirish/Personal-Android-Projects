@@ -120,6 +120,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
+
                                 Calendar bdayCal = new GregorianCalendar();
                                 bdayCal.setTime(theDate);
 
@@ -127,6 +128,44 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FormViewHolder> {
                                 Calendar bdayPersonsTime = new GregorianCalendar(TimeZone.getTimeZone(timezone));
                                 bdayPersonsTime.set(Calendar.DAY_OF_MONTH, bdayCal.get(Calendar.DAY_OF_MONTH));
                                 bdayPersonsTime.set(Calendar.MONTH, bdayCal.get(Calendar.MONTH));
+
+
+                                SimpleDateFormat formatter = new SimpleDateFormat("MMM dd,yyyy hh:mm:ss a");
+
+                                String dateInString = birthday + " 12:00:00 AM";
+                                Date date = null;
+                                try {
+                                    date = formatter.parse(dateInString);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                                TimeZone tz = TimeZone.getDefault();
+
+                                // From TimeZone Asia/Singapore
+                                System.out.println("TimeZone : " + tz.getID() + " - " + tz.getDisplayName());
+                                System.out.println("TimeZone : " + tz);
+                                System.out.println("Date : " + formatter.format(date));
+
+                                // To TimeZone America/New_York
+                                SimpleDateFormat sdfAmerica = new SimpleDateFormat("dd-M-yyyy hh:mm:ss a");
+                                TimeZone tzInAmerica = TimeZone.getTimeZone("America/New_York");
+                                sdfAmerica.setTimeZone(tzInAmerica);
+
+                                String sDateInAmerica = sdfAmerica.format(date); // Convert to String first
+                                Date dateLocal = null;
+                                try {
+                                    dateLocal = formatter.parse(sDateInAmerica);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+
+                                System.out.println("\nTimeZone : " + tzInAmerica.getID() +
+                                        " - " + tzInAmerica.getDisplayName());
+                                System.out.println("TimeZone : " + tzInAmerica);
+                                System.out.println("Date (String) : " + sDateInAmerica);
+                                System.out.println("Date (Object) : " + formatter.format(dateLocal));
+
+                                /****************************************/
 
                                 int bdayMonth = bdayCal.get(Calendar.MONTH);
                                 int currentMonth = Calendar.getInstance().get(Calendar.MONTH);
