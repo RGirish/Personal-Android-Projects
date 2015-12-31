@@ -50,3 +50,9 @@ XnO's is the tic-tac-toe game. I was experimenting with SQLite in Android and I 
 
 *Tech stuff: Java/XML for the app, PHP/MySQL for the backend.*
 
+##PicLock
+
+PicLock is a Picture Lockscreen that I developed for Android, like the picture lock screen for Windows PCs. It lets you create an unlock pattern first, recording 3 screen coordinates on 3 different images. Once they're set, the same touch patters need to be used to unlock the phone. 
+
+*Tech stuff: Java/XML for the app.*
+
