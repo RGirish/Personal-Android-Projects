@@ -24,7 +24,10 @@ A simple gallery of ImageViews with the photos of our team - the Innovation club
 The Bingo Game! This was one of the first apps that I developed. The usual bingo game. Nothing special about it, really. #FirstBase
 
 ##Cognit
-Cognit is an annual technical symposium of my college, MNM Jain Engineering College, Chennai, India. In a (successful) attempt to digitize all the activities in the symposium, I developed an application that allows the visitors to register for the 10s of events on the day of the symposium. This replaced the traditional way of my college's pen and papaer on-spot registration. For the 2013 edition of the symposium, I created a simple informational application. It was for the 2014 edition, that I created the online registration app.
+Cognit is an annual technical symposium of my college, MNM Jain Engineering College, Chennai, India. In a (successful) attempt to digitize all the activities in the symposium, I developed an application that allows the visitors to register for the 10s of events on the day of the symposium. This replaced the traditional way of my college's pen and paper on-spot registration. 
+This was split across two symposiums, like so:
+* For the 2013 edition of the symposium, I created a simple informational application, that listed the events and provided directions to each event.
+* For the 2014 edition, I created the online registration app, which allowed the participants to register online just once, instead of having to wait on the day of the symposium, which was usually the norm in most other colleges.
 
 *Tech stuff: Java/XML for the app, PHP/MySQL for the backend.*
 
@@ -55,4 +58,3 @@ XnO's is the tic-tac-toe game. I was experimenting with SQLite in Android and I 
 PicLock is a Picture Lockscreen that I developed for Android, like the picture lock screen for Windows PCs. It lets you create an unlock pattern first, recording 3 screen coordinates on 3 different images. Once they're set, the same touch patters need to be used to unlock the phone. 
 
 *Tech stuff: Java/XML for the app.*
-
