@@ -26,8 +26,8 @@ The Bingo Game! This was one of the first apps that I developed. The usual bingo
 ##Cognit
 Cognit is an annual technical symposium of my college, MNM Jain Engineering College, Chennai, India. In a (successful) attempt to digitize all the activities in the symposium, I developed an application that allows the visitors to register for the 10s of events on the day of the symposium. This replaced the traditional way of my college's pen and paper on-spot registration. 
 This was split across two symposiums, like so:
-* For the 2013 edition of the symposium, I created a simple informational application.
-* For the 2014 edition, I created the online registration app.
+* For the 2013 edition of the symposium, I created a simple informational application, that listed the events and provided directions to each event.
+* For the 2014 edition, I created the online registration app, which allowed the participants to register online just once, instead of having to wait on the day of the symposium, which was usually the norm in most other colleges.
 
 *Tech stuff: Java/XML for the app, PHP/MySQL for the backend.*
 
